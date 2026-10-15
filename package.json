@@ -1,0 +1,37 @@
+{
+  "name": "horisony",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0 <25"
+  },
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1",
+    "prebuild": "npm run verify:catalog",
+    "build": "next build",
+    "postbuild": "npm run verify:export",
+    "verify:catalog": "node --experimental-strip-types --test tests/catalog.test.ts tests/currency.test.ts tests/pricing.test.ts tests/assets.test.ts",
+    "verify:export": "node scripts/verify-export.mjs",
+    "preview": "node scripts/serve.mjs",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "npm run verify:catalog"
+  },
+  "dependencies": {
+    "next": "16.4.0",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "lucide-react": "0.468.0"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "@types/node": "22.19.1",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3",
+    "tailwindcss": "4.1.18",
+    "@tailwindcss/postcss": "4.1.18",
+    "eslint": "9.39.1",
+    "eslint-config-next": "16.4.0"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "provenance": "Four original AI-generated views recovered from the prior HORISONY image-generation outputs, not newly generated during this upload.",
+  "tool": "Built-in image_gen",
+  "entries": [
+    {
+      "asset": "public/images/studio-suede-effect-jacket-back.webp",
+      "generationId": "exec-60955b32-3a1a-40dd-b272-537db5d92588",
+      "prompt": "Use case: precise-object-edit. Input image 1: reference photograph of exact product. Create one matched full rear view photograph of this exact jacket turned around, entire garment centered, sleeves relaxed and slightly angled outward. Back panel must have no front zip or pockets. Subject specifications: taupe suede-effect soft polyester jacket, zip front, simple shirt collar, two side welt pockets, straight hem and plain cuffs. Preserve exactly garment color, material, collar construction, cuff and hem construction, seam design, pocket and zip style from the supplied image. Preserve the studio light and seamless warm stone #EAE8E3 backdrop. Photorealistic luxury ecommerce photography, portrait 4:5. No people, body, mannequins, hangers, accessories, logo, text, branding or watermark. One image, no collage. Garment-only product photography."
+    },
+    {
+      "asset": "public/images/studio-suede-effect-jacket-detail.webp",
+      "generationId": "exec-1c20eab5-ea1f-452f-bed5-72a2b2e25706",
+      "prompt": "Use case: precise-object-edit. Input image 1: reference photograph of exact product. Create one matched close-up detail photograph of this exact jacket, showing collar seam, upper zipper, and texture. Camera close to the collar and front zipper with a subtle three-quarter angle, no whole jacket. No invented features. Subject specifications: taupe suede-effect soft polyester jacket, zip front, simple shirt collar, two side welt pockets, straight hem and plain cuffs. Preserve exactly garment color, material, collar construction, cuff and hem construction, seam design, pocket and zip style from the supplied image. Preserve the studio light and seamless warm stone #EAE8E3 backdrop. Photorealistic luxury ecommerce photography, portrait 4:5. No people, body, mannequins, hangers, accessories, logo, text, branding or watermark. One image, no collage. Garment-only product photography."
+    },
+    {
+      "asset": "public/images/forma-technical-shell-back.webp",
+      "generationId": "exec-da47d570-24a0-4b06-91d6-0d1e72657662",
+      "prompt": "Use case: precise-object-edit. Input image 1: reference photograph of exact product. Create one matched full rear view photograph of this exact jacket turned around, entire garment centered, sleeves relaxed and slightly angled outward. Back panel must have no front zip or pockets. Subject specifications: slate gray nylon technical shell jacket, front zip, high stand collar, absolutely no hood, angular panel seams, two understated zip side pockets, straight hem. Preserve exactly garment color, material, collar construction, cuff and hem construction, seam design, pocket and zip style from the supplied image. Preserve the studio light and seamless warm stone #EAE8E3 backdrop. Photorealistic luxury ecommerce photography, portrait 4:5. No people, body, mannequins, hangers, accessories, logo, text, branding or watermark. One image, no collage. Garment-only product photography."
+    },
+    {
+      "asset": "public/images/forma-technical-shell-detail.webp",
+      "generationId": "exec-6edb280b-62a1-4cf5-a407-b7c4136347bc",
+      "prompt": "Use case: precise-object-edit. Input image 1: reference photograph of exact product. Create one matched close-up detail photograph of this exact jacket, showing collar seam, upper zipper, and texture. Camera close to the collar and front zipper with a subtle three-quarter angle, no whole jacket. No invented features. Subject specifications: slate gray nylon technical shell jacket, front zip, high stand collar, absolutely no hood, angular panel seams, two understated zip side pockets, straight hem. Preserve exactly garment color, material, collar construction, cuff and hem construction, seam design, pocket and zip style from the supplied image. Preserve the studio light and seamless warm stone #EAE8E3 backdrop. Photorealistic luxury ecommerce photography, portrait 4:5. No people, body, mannequins, hangers, accessories, logo, text, branding or watermark. One image, no collage. Garment-only product photography."
+    }
+  ]
+}

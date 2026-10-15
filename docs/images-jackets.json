@@ -1,0 +1,201 @@
+{
+  "method": "Built-in image_gen (one call per missing view), reference-guided product-mockup generation",
+  "status": "16 reconstructed missing jacket views saved; 0 assigned views missing",
+  "limitations": "These are newly generated matching alternate views, not recovered historical photographs. Unseen rear construction is inferred from the original front view; visual garment identity, colors, cut and studio style were checked against the references.",
+  "conversion": "Sharp WebP quality 88; 960px base plus 400px and 800px widths, aspect ratio retained. No artistic editing.",
+  "existingAssets": "All existing reference assets retained; conversion refused to overwrite existing destinations.",
+  "images": [
+    {
+      "product": "horizon-bomber-jacket",
+      "view": "back",
+      "reference": "public/images/horizon-bomber-jacket-front.webp",
+      "files": [
+        "public/images/horizon-bomber-jacket-back.webp",
+        "public/images/horizon-bomber-jacket-back-400.webp",
+        "public/images/horizon-bomber-jacket-back-800.webp"
+      ],
+      "prompt": "Use case: product-mockup. Create ONE matching e-commerce studio photograph, rear view of the exact black bomber jacket shown in reference image. Reference image is the garment identity and studio style reference. Preserve black nylon shell, matte mild sheen, black ribbed stand collar, cuffs and broad hem, body length and sleeve cut. Show actual plain rear body panel with natural seams; no front zipper or front pockets visible on the back. Full garment centered, sleeves gently spread, portrait 4:5 framing, warm off-white seamless backdrop and soft upper-left studio lighting matching reference. Product only, no model, hanger, text, branding, logos, props or watermark. Photorealistic fabric, precise construction. This is a missing alternate catalog view; do not redesign the garment.",
+      "review": "Visually inspected original reference and output; matching garment color/material/silhouette and studio style; product-only; rear omits front closure and pockets."
+    },
+    {
+      "product": "horizon-bomber-jacket",
+      "view": "detail",
+      "reference": "public/images/horizon-bomber-jacket-front.webp",
+      "files": [
+        "public/images/horizon-bomber-jacket-detail.webp",
+        "public/images/horizon-bomber-jacket-detail-400.webp",
+        "public/images/horizon-bomber-jacket-detail-800.webp"
+      ],
+      "prompt": "Use case: product-mockup. ONE macro studio construction-detail photograph of the exact black bomber jacket in reference. Reference is garment identity/style. Closely frame black ribbed stand collar meeting black nylon shell and upper silver center zipper; show real dense ribbing, stitch lines, smooth matte nylon mild sheen. Crop garment naturally beyond image edges, portrait 4:5, softly lit warm off-white studio backdrop where visible. Preserve exact color, fabric, seam style and zipper. No people, hands, text, brand, labels, props, watermark. Photoreal premium e-commerce detail view; no design changes.",
+      "review": "Visually inspected original reference and output; matching garment color/material/silhouette and studio style; product-only; rear omits front closure and pockets."
+    },
+    {
+      "product": "atlas-utility-jacket",
+      "view": "back",
+      "reference": "public/images/atlas-utility-jacket-front.webp",
+      "files": [
+        "public/images/atlas-utility-jacket-back.webp",
+        "public/images/atlas-utility-jacket-back-400.webp",
+        "public/images/atlas-utility-jacket-back-800.webp"
+      ],
+      "prompt": "Use case: product-mockup. Create ONE matching e-commerce studio photograph of the actual rear of the olive utility jacket shown in reference. Preserve muted olive cotton canvas/twill, high stand collar, straight hem, long straight sleeves, generous utilitarian fit and visible double stitching. Actual rear panel, subtle shoulder yoke seams and natural fabric folds; no front zipper or front patch pockets on back. Full garment centered, sleeves gently spread, same scale, portrait 4:5 composition, warm off-white seamless studio background and soft upper-left lighting. Product only, no person, hanger, text, brand, labels, watermark or props. Exact reference garment and photo style, no redesign.",
+      "review": "Visually inspected original reference and output; matching garment color/material/silhouette and studio style; product-only; rear omits front closure and pockets."
+    },
+    {
+      "product": "atlas-utility-jacket",
+      "view": "detail",
+      "reference": "public/images/atlas-utility-jacket-front.webp",
+      "files": [
+        "public/images/atlas-utility-jacket-detail.webp",
+        "public/images/atlas-utility-jacket-detail-400.webp",
+        "public/images/atlas-utility-jacket-detail-800.webp"
+      ],
+      "prompt": "Use case: product-mockup. ONE close studio construction-detail photograph of the exact muted olive utility jacket shown in reference. Reference is garment identity and style. Frame the large chest bellows patch pocket with its broad flap and center pleat, close enough to see canvas twill weave, double rows of olive stitching, seam turns and softly worn cotton surface. Pocket must match reference size, olive color and construction; include adjacent partial center antique-metal zipper at edge if naturally in crop. Portrait 4:5, soft studio lighting, warm off-white backdrop only if visible. No people, hands, text, branding, labels, props or watermark. Photoreal e-commerce macro; do not redesign.",
+      "review": "Visually inspected original reference and output; matching garment color/material/silhouette and studio style; product-only; rear omits front closure and pockets."
+    },
+    {
+      "product": "northline-puffer-jacket",
+      "view": "back",
+      "reference": "public/images/northline-puffer-jacket-front.webp",
+      "files": [
+        "public/images/northline-puffer-jacket-back.webp",
+        "public/images/northline-puffer-jacket-back-400.webp",
+        "public/images/northline-puffer-jacket-back-800.webp"
+      ],
+      "prompt": "Use case: product-mockup. ONE matching e-commerce studio rear photograph of the exact charcoal gray puffer jacket from reference. Preserve charcoal matte nylon, high padded stand collar without hood, horizontally quilted broad puffer channels, padded sleeve shape, elastic cuffs, straight lightly elastic hem and body proportions. True rear view, matching horizontal quilting continues across back, no front zipper or front pocket openings visible on rear. Full garment centered on warm off-white seamless backdrop, gently spread sleeves, soft upper-left studio lighting, portrait 4:5 image. Product only, no person, hanger, logos, text, labels, props, watermark. Exact garment, no redesign.",
+      "review": "Visually inspected original reference and output; matching garment color/material/silhouette and studio style; product-only; rear omits front closure and pockets."
+    },
+    {
+      "product": "northline-puffer-jacket",
+      "view": "detail",
+      "reference": "public/images/northline-puffer-jacket-front.webp",
+      "files": [
+        "public/images/northline-puffer-jacket-detail.webp",
+        "public/images/northline-puffer-jacket-detail-400.webp",
+        "public/images/northline-puffer-jacket-detail-800.webp"
+      ],
+      "prompt": "Use case: product-mockup. ONE macro studio photograph of the same charcoal gray puffer jacket in reference. Close crop the front hip zip pocket, adjacent horizontal quilted channels and lower padded panel. Keep exact charcoal matte finely woven nylon, gray metal/plastic zipper matching reference, delicate topstitching and natural puffer volume. Portrait 4:5 close composition, soft upper-left studio light, warm off-white background only if visible. No redesign, no text, brands, labels, hands, person, watermark or props. Accurate premium e-commerce construction detail.",
+      "review": "Visually inspected original reference and output; matching garment color/material/silhouette and studio style; product-only; rear omits front closure and pockets."
+    },
+    {
+      "product": "drift-denim-jacket",
+      "view": "back",
+      "reference": "public/images/drift-denim-jacket-front.webp",
+      "files": [
+        "public/images/drift-denim-jacket-back.webp",
+        "public/images/drift-denim-jacket-back-400.webp",
+        "public/images/drift-denim-jacket-back-800.webp"
+      ],
+      "prompt": "Use case: product-mockup. ONE matching e-commerce studio rear view of the exact deep indigo denim trucker jacket in reference. Preserve dark indigo washed denim with subtle pale wear, tan contrast topstitching, pointed collar, straight banded hem, button cuffs, body cut and sleeve proportions. True rear construction with horizontal shoulder yoke and two subtle vertical shaping seams into waistband; no front placket, chest pockets or front buttons on rear body. Full garment centered, gently spread sleeves, warm off-white seamless background, soft upper-left lighting, portrait 4:5. Photorealistic product only, no model, hanger, logo, text, labels, props or watermark. Do not redesign.",
+      "review": "Visually inspected original reference and output; matching garment color/material/silhouette and studio style; product-only; rear omits front closure and pockets."
+    },
+    {
+      "product": "drift-denim-jacket",
+      "view": "detail",
+      "reference": "public/images/drift-denim-jacket-front.webp",
+      "files": [
+        "public/images/drift-denim-jacket-detail.webp",
+        "public/images/drift-denim-jacket-detail-400.webp",
+        "public/images/drift-denim-jacket-detail-800.webp"
+      ],
+      "prompt": "Use case: product-mockup. ONE macro studio construction-detail photograph of the exact dark indigo denim trucker jacket from reference. Closely frame one pointed chest flap pocket and its small round brushed silver button, with matching tan double topstitching and adjacent vertical body seam. Preserve deep indigo washed cotton denim weave, slight edge wear, pocket shape, button hardware and stitch color exactly. Portrait 4:5 close crop, soft upper-left light, warm off-white background only if visible. Photoreal e-commerce construction detail. No model, hands, text, branding, labels, props or watermark; no garment redesign.",
+      "review": "Visually inspected original reference and output; matching garment color/material/silhouette and studio style; product-only; rear omits front closure and pockets."
+    },
+    {
+      "product": "heritage-harrington-jacket",
+      "view": "back",
+      "reference": "public/images/heritage-harrington-jacket-front.webp",
+      "files": [
+        "public/images/heritage-harrington-jacket-back.webp",
+        "public/images/heritage-harrington-jacket-back-400.webp",
+        "public/images/heritage-harrington-jacket-back-800.webp"
+      ],
+      "prompt": "Use case: product-mockup. ONE matching e-commerce studio rear photograph of the exact navy Harrington jacket from reference. Preserve deep navy fine cotton twill, high stand collar, raglan shoulder sleeves, black/navy ribbed cuffs and broad ribbed waist, relaxed short body shape. True back view with classic shallow umbrella shoulder yoke, no front zipper, button tabs or front pockets on rear. Full garment centered, sleeves gently spread, warm off-white seamless background and soft upper-left studio light. Portrait 4:5 framing matching original. Product only, no person, hanger, labels, text, branding, props, watermark. Photorealistic accurate garment, no redesign.",
+      "review": "Visually inspected original reference and output; matching garment color/material/silhouette and studio style; product-only; rear omits front closure and pockets."
+    },
+    {
+      "product": "heritage-harrington-jacket",
+      "view": "detail",
+      "reference": "public/images/heritage-harrington-jacket-front.webp",
+      "files": [
+        "public/images/heritage-harrington-jacket-detail.webp",
+        "public/images/heritage-harrington-jacket-detail-400.webp",
+        "public/images/heritage-harrington-jacket-detail-800.webp"
+      ],
+      "prompt": "Use case: product-mockup. ONE macro studio construction-detail photograph of the exact deep navy Harrington jacket from reference. Closely frame the stand collar and its two small dark round buttons at the throat, plus upper silver center zipper and adjoining raglan shoulder seam. Preserve fine navy cotton twill, subtle navy stitches, button scale and hardware matching reference exactly. Portrait 4:5 close crop with soft studio light and warm off-white backdrop only if visible. Photoreal e-commerce fabric/construction detail. No model, hands, text, brand, labels, props, watermark; no redesign.",
+      "review": "Visually inspected original reference and output; matching garment color/material/silhouette and studio style; product-only; rear omits front closure and pockets."
+    },
+    {
+      "product": "terrain-quilted-jacket",
+      "view": "back",
+      "reference": "public/images/terrain-quilted-jacket-front.webp",
+      "files": [
+        "public/images/terrain-quilted-jacket-back.webp",
+        "public/images/terrain-quilted-jacket-back-400.webp",
+        "public/images/terrain-quilted-jacket-back-800.webp"
+      ],
+      "prompt": "Use case: product-mockup. ONE matching e-commerce studio rear photograph of exact forest green diamond-quilted jacket shown in reference. Preserve deep forest green nylon/cotton matte shell, medium diamond quilting, pointed shirt collar, straight bound hem, narrow straight cuffs and relaxed jacket body. True rear view shows uninterrupted diamond-quilted back panel with natural seams, no front zipper or patch pockets visible on back. Full garment centered on warm off-white seamless backdrop, gently spread sleeves, soft upper-left light, portrait 4:5. Photorealistic product only. No person, hanger, text, logos, labels, props or watermark. No design changes.",
+      "review": "Visually inspected original reference and output; matching garment color/material/silhouette and studio style; product-only; rear omits front closure and pockets."
+    },
+    {
+      "product": "terrain-quilted-jacket",
+      "view": "detail",
+      "reference": "public/images/terrain-quilted-jacket-front.webp",
+      "files": [
+        "public/images/terrain-quilted-jacket-detail.webp",
+        "public/images/terrain-quilted-jacket-detail-400.webp",
+        "public/images/terrain-quilted-jacket-detail-800.webp"
+      ],
+      "prompt": "Use case: product-mockup. ONE macro studio construction-detail photograph of exact forest green quilted jacket in reference. Close frame one lower rounded rectangular patch pocket with its bound top edge, surrounding diagonal diamond-quilt stitching and softly padded green woven surface. Match exact forest green color, diamond scale, pocket shape and understated tonal stitches. Portrait 4:5 close crop, soft upper-left lighting, warm off-white background only if visible. Photoreal premium e-commerce detail. No hands, model, labels, text, branding, props or watermark; no garment redesign.",
+      "review": "Visually inspected original reference and output; matching garment color/material/silhouette and studio style; product-only; rear omits front closure and pockets."
+    },
+    {
+      "product": "eclipse-cropped-jacket",
+      "view": "back",
+      "reference": "public/images/eclipse-cropped-jacket-front.webp",
+      "files": [
+        "public/images/eclipse-cropped-jacket-back.webp",
+        "public/images/eclipse-cropped-jacket-back-400.webp",
+        "public/images/eclipse-cropped-jacket-back-800.webp"
+      ],
+      "prompt": "Use case: product-mockup. ONE matching e-commerce studio rear photo of exact black cropped cotton jacket shown in reference. Preserve washed black matte heavyweight cotton/twill, pointed shirt collar, very short boxy cropped body, dropped shoulder, long straight sleeves and wide plain cuffs, straight banded hem. True rear view with horizontal upper-back yoke seam, plain back panel; no front zipper or chest pockets visible on back. Full garment centered, sleeves gently spread, warm off-white seamless studio background, soft upper-left light, portrait 4:5 matching reference. Product only, no people, hanger, labels, logos, text, props, watermark. Exact garment, no redesign.",
+      "review": "Visually inspected original reference and output; matching garment color/material/silhouette and studio style; product-only; rear omits front closure and pockets."
+    },
+    {
+      "product": "eclipse-cropped-jacket",
+      "view": "detail",
+      "reference": "public/images/eclipse-cropped-jacket-front.webp",
+      "files": [
+        "public/images/eclipse-cropped-jacket-detail.webp",
+        "public/images/eclipse-cropped-jacket-detail-400.webp",
+        "public/images/eclipse-cropped-jacket-detail-800.webp"
+      ],
+      "prompt": "Use case: product-mockup. ONE close studio construction-detail photo of exact washed black cropped jacket shown in reference. Close frame one angular chest flap pocket with hidden fastening, adjacent horizontal yoke seam and partial silver center zipper. Preserve matte washed black heavyweight cotton twill, subtle dark tonal double stitching and precise flap pocket shape exactly. Portrait 4:5 composition, garment naturally cropped beyond image, warm off-white background only if visible, soft upper-left light. Photoreal e-commerce texture/construction detail. No hands, person, text, brand, labels, props or watermark. No design changes.",
+      "review": "Visually inspected original reference and output; matching garment color/material/silhouette and studio style; product-only; rear omits front closure and pockets."
+    },
+    {
+      "product": "summit-lightweight-jacket",
+      "view": "back",
+      "reference": "public/images/summit-lightweight-jacket-front.webp",
+      "files": [
+        "public/images/summit-lightweight-jacket-back.webp",
+        "public/images/summit-lightweight-jacket-back-400.webp",
+        "public/images/summit-lightweight-jacket-back-800.webp"
+      ],
+      "prompt": "Use case: product-mockup. ONE matching e-commerce studio rear photo of the exact light stone beige lightweight jacket shown in reference. Preserve warm stone/beige thin matte finely woven shell, subtle natural crinkles, high stand collar without hood, long relaxed sleeves with narrow elastic cuffs, straight plain hem, same body length and fit. True rear panel with understated shoulder seam; no front zipper or front slash pockets visible on back. Full garment centered, gently spread sleeves, warm off-white seamless backdrop and soft upper-left lighting matching original, portrait 4:5. Product only, no person, hanger, text, brands, labels, props, watermark. Photoreal; no garment redesign.",
+      "review": "Visually inspected original reference and output; matching garment color/material/silhouette and studio style; product-only; rear omits front closure and pockets."
+    },
+    {
+      "product": "summit-lightweight-jacket",
+      "view": "detail",
+      "reference": "public/images/summit-lightweight-jacket-front.webp",
+      "files": [
+        "public/images/summit-lightweight-jacket-detail.webp",
+        "public/images/summit-lightweight-jacket-detail-400.webp",
+        "public/images/summit-lightweight-jacket-detail-800.webp"
+      ],
+      "prompt": "Use case: product-mockup. ONE macro studio construction-detail photo of the exact light stone beige lightweight jacket shown in reference. Close frame the narrow elasticated sleeve cuff and surrounding softly crinkled fine matte beige shell, showing clean tonal stitching and lightly gathered edge. Include only the original garment material, preserve exact warm stone color, thin weave and cuff construction. Portrait 4:5 close crop, soft upper-left studio light, warm off-white backdrop. Photoreal e-commerce detail, no hands, model, labels, brand, text, props or watermark. Do not redesign.",
+      "review": "Visually inspected original reference and output; matching garment color/material/silhouette and studio style; product-only; rear omits front closure and pockets."
+    }
+  ]
+}
