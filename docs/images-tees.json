@@ -1,0 +1,197 @@
+{
+  "method": "Recovered previously generated matching product views from saved outputs; no new image generation for this deployment fix.",
+  "existingAssets": "All 132 previously committed WebPs remain unchanged; only missing destinations were written.",
+  "limitations": "Matching AI-generated alternate views; unseen rear construction is inferred from each original front photo.",
+  "images": [
+    {
+      "product": "midnight-heavyweight-tee",
+      "view": "back",
+      "generationId": "exec-8e10f0d2-ecb4-4686-bd63-a68c7e8b222b",
+      "prompt": "Use case: product-mockup. Asset: square premium e-commerce garment photograph. Image 1 is the exact product reference, not a layout to copy blindly. Recreate the same plain black heavyweight cotton T-shirt photographed from the BACK, laid flat with sleeves spread. Show the actual rear neckline higher than the front scoop, back exterior fabric only; no front inner collar visible. Preserve exact black color, rib collar, heavy jersey texture, dropped shoulder cut, length and sleeve shape of the reference. Full garment centered at matching scale on the same pale warm gray studio background, soft overhead diffused lighting and subtle shadows. Photorealistic. No person, hanger, props, logos, text, print, watermark, or added seams or embellishments.",
+      "reference": "public/images/midnight-heavyweight-tee-front.webp",
+      "files": [
+        "public/images/midnight-heavyweight-tee-back.webp",
+        "public/images/midnight-heavyweight-tee-back-400.webp",
+        "public/images/midnight-heavyweight-tee-back-800.webp"
+      ]
+    },
+    {
+      "product": "midnight-heavyweight-tee",
+      "view": "detail",
+      "generationId": "exec-590089ed-8a12-4f42-8cf3-782cc3c4b0f2",
+      "prompt": "Use case: product-mockup. Asset: square premium e-commerce garment detail photograph. Image 1 is the exact garment reference. Photograph a close macro crop of the same black heavyweight cotton jersey, relaxed dropped shoulders T-shirt, focused on the ribbed crew collar meeting the shoulder seam and smooth jersey fabric. Preserve the exact color, material, stitch scale and construction. Realistic fine fibers, neat double stitching, soft folds. Same pale warm gray background and soft overhead diffused studio lighting. Camera top down, product only, detail fills frame, fabric retains its true reference color. No person, hanger, props, logos, writing, print, watermark or invented decoration.",
+      "reference": "public/images/midnight-heavyweight-tee-front.webp",
+      "files": [
+        "public/images/midnight-heavyweight-tee-detail.webp",
+        "public/images/midnight-heavyweight-tee-detail-400.webp",
+        "public/images/midnight-heavyweight-tee-detail-800.webp"
+      ]
+    },
+    {
+      "product": "sandstone-oversized-tee",
+      "view": "back",
+      "generationId": "exec-4d6231d2-e7e4-4e9e-b8ef-32de230d07ce",
+      "prompt": "Use case: product-mockup. Asset: square premium e-commerce garment photograph. Image 1 is the exact garment reference. Photograph the same sand beige cotton jersey, oversized dropped shoulders T-shirt from the BACK, laid flat with sleeves spread. The actual exterior rear neckline must be high, without the scoop or visible inner front collar. Preserve exact color, collar, fabric, cut, length, sleeve shape and hem stitching. Full garment centered at matching scale on same pale warm gray studio background, soft overhead diffused lighting and subtle shadows. Photorealistic. No person, hanger, props, logos, text, prints, watermark, added seams or decorations.",
+      "reference": "public/images/sandstone-oversized-tee-front.webp",
+      "files": [
+        "public/images/sandstone-oversized-tee-back.webp",
+        "public/images/sandstone-oversized-tee-back-400.webp",
+        "public/images/sandstone-oversized-tee-back-800.webp"
+      ]
+    },
+    {
+      "product": "sandstone-oversized-tee",
+      "view": "detail",
+      "generationId": "exec-ccf651c6-4e5b-44c1-9d73-5f353812d299",
+      "prompt": "Use case: product-mockup. Asset: square premium e-commerce garment detail photograph. Image 1 is the exact garment reference. Photograph a close macro crop of the same sand beige cotton jersey, oversized dropped shoulders T-shirt, focused on ribbed crew collar meeting shoulder seam and cotton jersey. Preserve the exact color, material, stitch scale and construction. Realistic fine fibers, neat double stitching and soft folds. Same pale warm gray background and soft overhead diffused studio lighting. Camera top down, product only, detail fills frame, fabric retains its true reference color. No person, hanger, props, logos, writing, print, watermark or invented decoration.",
+      "reference": "public/images/sandstone-oversized-tee-front.webp",
+      "files": [
+        "public/images/sandstone-oversized-tee-detail.webp",
+        "public/images/sandstone-oversized-tee-detail-400.webp",
+        "public/images/sandstone-oversized-tee-detail-800.webp"
+      ]
+    },
+    {
+      "product": "slate-boxy-tee",
+      "view": "back",
+      "generationId": "exec-ba7e0772-3d27-45ec-abf6-efde04d18969",
+      "prompt": "Use case: product-mockup. Asset: square premium e-commerce garment photograph. Image 1 is the exact garment reference. Photograph the same washed charcoal gray cotton jersey, wide boxy cropped cut and dropped shoulders T-shirt from the BACK, laid flat with sleeves spread. Actual exterior rear neckline is high without front scoop or visible inner collar. Preserve exact charcoal gray washed color, collar, fabric, wide cropped boxy proportions, length, sleeve shape and hem stitching. Full garment centered at matching scale on same pale warm gray studio background, soft overhead diffused lighting and subtle shadows. Photorealistic. No person, hanger, props, logos, text, prints, watermark, added seams or decorations.",
+      "reference": "public/images/slate-boxy-tee-front.webp",
+      "files": [
+        "public/images/slate-boxy-tee-back.webp",
+        "public/images/slate-boxy-tee-back-400.webp",
+        "public/images/slate-boxy-tee-back-800.webp"
+      ]
+    },
+    {
+      "product": "slate-boxy-tee",
+      "view": "detail",
+      "generationId": "exec-b2045035-73b8-4d60-be35-b23b03a136eb",
+      "prompt": "Use case: product-mockup. Asset: square premium e-commerce garment detail photograph. Image 1 is exact product reference. Photograph a close macro crop of the same washed charcoal gray cotton jersey, wide boxy cropped cut and dropped shoulders T-shirt, focused on ribbed crew collar meeting shoulder seam and washed cotton jersey. Preserve exact charcoal gray color, material, stitch scale and construction. Realistic fine fibers, neat double stitching and soft folds. Same pale warm gray background, soft overhead diffused studio lighting. Camera top down, product only, detail fills frame. No person, hanger, props, logos, text, print, watermark or invented decoration.",
+      "reference": "public/images/slate-boxy-tee-front.webp",
+      "files": [
+        "public/images/slate-boxy-tee-detail.webp",
+        "public/images/slate-boxy-tee-detail-400.webp",
+        "public/images/slate-boxy-tee-detail-800.webp"
+      ]
+    },
+    {
+      "product": "alpine-ribbed-tee",
+      "view": "back",
+      "generationId": "exec-baff1477-e2a3-4233-b31a-01701e264cef",
+      "prompt": "Use case: product-mockup. Asset: square premium e-commerce garment photograph. Image 1 is exact product reference. Photograph the same sage green vertically ribbed knit, fitted hourglass torso, short fitted sleeves and rib crew neck T-shirt from the BACK, laid flat with sleeves spread. Actual exterior rear neckline is higher than front scoop; do not show inner front collar. Preserve exact muted sage green color, fine narrow vertical rib texture, fitted hourglass torso proportions, short fitted sleeves, binding and hem stitching. Full garment centered at matching scale on same pale warm gray studio background, soft overhead diffused lighting and subtle shadows. Photorealistic. No person, hanger, props, logos, text, prints, watermark, added seams or decorations.",
+      "reference": "public/images/alpine-ribbed-tee-front.webp",
+      "files": [
+        "public/images/alpine-ribbed-tee-back.webp",
+        "public/images/alpine-ribbed-tee-back-400.webp",
+        "public/images/alpine-ribbed-tee-back-800.webp"
+      ]
+    },
+    {
+      "product": "alpine-ribbed-tee",
+      "view": "detail",
+      "generationId": "exec-23f6db28-4c0c-4fae-b699-4518e6f3877b",
+      "prompt": "Use case: product-mockup. Asset: square premium e-commerce garment detail photograph. Image 1 is exact product reference. Photograph a close macro crop of the same sage green vertically ribbed knit, fitted hourglass torso, short fitted sleeves and rib crew neck T-shirt, focused on crew neckline binding joining shoulder seam and the fine vertical ribs of body fabric. Preserve exact muted sage green, fine rib spacing, stitch scale and construction. Realistic fine fibers, neat stitching, soft folds. Same pale warm gray background, soft overhead diffused studio lighting. Camera top down, product only, detail fills frame. No person, hanger, props, logos, text, print, watermark or invented decoration.",
+      "reference": "public/images/alpine-ribbed-tee-front.webp",
+      "files": [
+        "public/images/alpine-ribbed-tee-detail.webp",
+        "public/images/alpine-ribbed-tee-detail-400.webp",
+        "public/images/alpine-ribbed-tee-detail-800.webp"
+      ]
+    },
+    {
+      "product": "studio-relaxed-tee",
+      "view": "back",
+      "generationId": "exec-fa634127-c9ba-4db8-89bd-9adc02b7ceee",
+      "prompt": "Use case: product-mockup. Asset: square premium e-commerce garment photograph. Image 1 is exact product reference. Photograph the same warm ivory cotton jersey, relaxed cut T-shirt from the BACK, laid flat with sleeves spread. Actual exterior rear neckline is high without front scoop or inner collar visible. Preserve exact warm ivory cream color, collar, fine jersey fabric, relaxed proportions, length, sleeve shape and hem stitching. Full garment centered at matching scale on same pale warm gray studio background, soft overhead diffused lighting and subtle shadows. Photorealistic. No person, hanger, props, logos, text, prints, watermark, added seams or decorations.",
+      "reference": "public/images/studio-relaxed-tee-front.webp",
+      "files": [
+        "public/images/studio-relaxed-tee-back.webp",
+        "public/images/studio-relaxed-tee-back-400.webp",
+        "public/images/studio-relaxed-tee-back-800.webp"
+      ]
+    },
+    {
+      "product": "studio-relaxed-tee",
+      "view": "detail",
+      "generationId": "exec-6c22d2f1-3a3a-47e2-b8d7-bba331331590",
+      "prompt": "Use case: product-mockup. Asset: square premium e-commerce garment detail photograph. Image 1 is exact product reference. Photograph a close macro crop of the same warm ivory cotton jersey, relaxed cut T-shirt, focused on ribbed crew collar meeting shoulder seam and cotton jersey. Preserve exact warm ivory cream color, material, stitch scale and construction. Realistic fine fibers, neat double stitching and soft folds. Same pale warm gray background, soft overhead diffused studio lighting. Camera top down, product only, detail fills frame. No person, hanger, props, logos, text, print, watermark or invented decoration.",
+      "reference": "public/images/studio-relaxed-tee-front.webp",
+      "files": [
+        "public/images/studio-relaxed-tee-detail.webp",
+        "public/images/studio-relaxed-tee-detail-400.webp",
+        "public/images/studio-relaxed-tee-detail-800.webp"
+      ]
+    },
+    {
+      "product": "eclipse-washed-tee",
+      "view": "back",
+      "generationId": "exec-a3f39430-8702-424b-9b09-8479a89c1400",
+      "prompt": "Use case: product-mockup. Asset: square premium e-commerce garment photograph. Image 1 is exact product reference. Photograph the same washed nearly black charcoal cotton jersey with vintage mottled acid-wash texture, wide boxy dropped shoulders T-shirt from the BACK, laid flat with sleeves spread. Actual exterior rear neckline is high without front scoop or inner collar visible. Preserve exact washed black charcoal mottled acid-wash tone, subtle faded seams, rib crew collar, cotton fabric, wide boxy proportions, length, sleeve shape and hem stitching. Full garment centered at matching scale on same pale warm gray studio background, soft overhead diffused lighting and subtle shadows. Photorealistic. No person, hanger, props, logos, text, prints, watermark, added seams or decorations.",
+      "reference": "public/images/eclipse-washed-tee-front.webp",
+      "files": [
+        "public/images/eclipse-washed-tee-back.webp",
+        "public/images/eclipse-washed-tee-back-400.webp",
+        "public/images/eclipse-washed-tee-back-800.webp"
+      ]
+    },
+    {
+      "product": "eclipse-washed-tee",
+      "view": "detail",
+      "generationId": "exec-39c2c890-76fa-4800-b9a2-100346a0d3ff",
+      "prompt": "Use case: product-mockup. Asset: square premium e-commerce garment detail photograph. Image 1 is exact product reference. Photograph a close macro crop of the same washed nearly black charcoal cotton jersey with vintage mottled acid-wash texture, wide boxy dropped shoulders T-shirt, focused on ribbed crew collar meeting shoulder seam and vintage washed cotton jersey. Preserve exact washed nearly black charcoal tone and mottled surface, subtly faded seam edges, material, stitch scale and construction. Realistic fine fibers and neat double stitching. Same pale warm gray background, soft overhead diffused studio lighting. Camera top down, product only, detail fills frame. No person, hanger, props, logos, text, print, watermark or invented decoration.",
+      "reference": "public/images/eclipse-washed-tee-front.webp",
+      "files": [
+        "public/images/eclipse-washed-tee-detail.webp",
+        "public/images/eclipse-washed-tee-detail-400.webp",
+        "public/images/eclipse-washed-tee-detail-800.webp"
+      ]
+    },
+    {
+      "product": "terra-structured-tee",
+      "view": "back",
+      "generationId": "exec-0eef44d7-bfbc-4eb3-b41d-e05034de3d23",
+      "prompt": "Use case: product-mockup. Asset: portrait 4:5 premium e-commerce garment photograph. Image 1 is exact product reference. Photograph the same terracotta rust structured smooth cotton jersey, regular relaxed cut T-shirt from the BACK, laid flat with sleeves spread. Actual exterior rear neckline is high without front scoop or inner collar visible. Preserve exact terracotta rust orange brown color, ribbed collar, smooth dense cotton fabric, structured proportions, length, sleeve shape and hem stitching. Full garment centered at matching scale on same pale warm gray studio background, soft overhead diffused lighting and subtle shadows. Photorealistic. No person, hanger, props, logos, text, prints, watermark, added seams or decorations.",
+      "reference": "public/images/terra-structured-tee-front.webp",
+      "files": [
+        "public/images/terra-structured-tee-back.webp",
+        "public/images/terra-structured-tee-back-400.webp",
+        "public/images/terra-structured-tee-back-800.webp"
+      ]
+    },
+    {
+      "product": "terra-structured-tee",
+      "view": "detail",
+      "generationId": "exec-080b8938-d43a-4dd9-93c3-0994ff5b0fd4",
+      "prompt": "Use case: product-mockup. Asset: portrait 4:5 premium e-commerce garment detail photograph. Image 1 is exact product reference. Photograph a close macro crop of the same terracotta rust structured smooth cotton jersey, regular relaxed cut T-shirt, focused on ribbed crew collar meeting shoulder seam and dense smooth cotton jersey. Preserve exact terracotta rust orange brown tone, material, stitch scale and construction. Realistic fine fibers and neat double stitching. Same pale warm gray background, soft overhead diffused studio lighting. Camera top down, product only, detail fills frame. No person, hanger, props, logos, text, print, watermark or invented decoration.",
+      "reference": "public/images/terra-structured-tee-front.webp",
+      "files": [
+        "public/images/terra-structured-tee-detail.webp",
+        "public/images/terra-structured-tee-detail-400.webp",
+        "public/images/terra-structured-tee-detail-800.webp"
+      ]
+    },
+    {
+      "product": "origin-minimal-tee",
+      "view": "back",
+      "prompt": "Use case: product-mockup. Asset type: missing HORISONY product-only studio catalog photograph. Image 1 is the exact garment identity and studio style reference: a solid warm stone-gray cotton slim regular T-shirt, short set-in sleeves, neat narrow ribbed crewneck, straight double-stitched hem. Preserve its exact gray color, matte fine cotton texture, cut, proportions, seam construction, warm off-white seamless background and soft diffuse directional lighting. No people, hands, body, mannequin, hanger, text, visible labels, logos, branding, watermark or props. Photorealistic original garment photography, portrait 4:5 composition. Do not redesign the garment. Primary request: photograph the actual BACK of the same T-shirt. Full garment centered, gently spread sleeves and ample margins like reference. Rear neckline is shallow and high; show the rear body and ordinary shoulder/side/hem seams. No deep front neckline, front inset or invented graphics.",
+      "reference": "public/images/origin-minimal-tee-front.webp",
+      "files": [
+        "public/images/origin-minimal-tee-back.webp",
+        "public/images/origin-minimal-tee-back-400.webp",
+        "public/images/origin-minimal-tee-back-800.webp"
+      ]
+    },
+    {
+      "product": "origin-minimal-tee",
+      "view": "detail",
+      "prompt": "Use case: product-mockup. Asset type: missing HORISONY product-only studio catalog photograph. Image 1 is the exact garment identity and studio style reference: a solid warm stone-gray cotton slim regular T-shirt, short set-in sleeves, neat narrow ribbed crewneck, straight double-stitched hem. Preserve its exact gray color, matte fine cotton texture, cut, proportions, seam construction, warm off-white seamless background and soft diffuse directional lighting. No people, hands, body, mannequin, hanger, text, visible labels, logos, branding, watermark or props. Photorealistic original garment photography, portrait 4:5 composition. Do not redesign the garment. Primary request: one macro DETAIL photograph of the same T-shirt's ribbed crewneck collar meeting the upper shoulder seam. Show cotton knit grain, neat matching gray stitch lines and narrow ribbing clearly. Tight crop, garment naturally extends outside frame; a small edge of the matching warm studio background may be visible. Preserve exact collar construction and fine cotton material.",
+      "reference": "public/images/origin-minimal-tee-front.webp",
+      "files": [
+        "public/images/origin-minimal-tee-detail.webp",
+        "public/images/origin-minimal-tee-detail-400.webp",
+        "public/images/origin-minimal-tee-detail-800.webp"
+      ]
+    }
+  ]
+}
