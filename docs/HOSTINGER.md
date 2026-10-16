@@ -16,7 +16,7 @@ This repository exports a static website. No Node server, database, payment cred
 | Server entry/start command | none; static export |
 | Canonical domain | `https://horizony.store` |
 
-`npm run build` runs catalog/image checks before compiling, then checks local references in the export. It must succeed before publishing. `out/` is generated and deliberately excluded from the source branch. Do not serve the source directory or `.next/` as a static website.
+`npm run build` runs catalog/image checks, compiles with `next build --webpack`, then checks local references in the export. Webpack is selected explicitly to avoid the Turbopack PostCSS asset-processing failure reported on Hostinger. Keep Hostinger's build command set to `npm run build`; a bare `next build` uses Turbopack by default and also skips the npm lifecycle checks. It must succeed before publishing. `out/` is generated and deliberately excluded from the source branch. Do not serve the source directory or `.next/` as a static website.
 
 ## Hostinger with GitHub builds
 

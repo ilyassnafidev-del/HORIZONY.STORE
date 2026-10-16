@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "next dev --hostname 127.0.0.1",
     "prebuild": "npm run verify:catalog",
-    "build": "next build",
+    "build": "next build --webpack",
     "postbuild": "npm run verify:export",
     "verify:catalog": "node --experimental-strip-types --test tests/catalog.test.ts tests/currency.test.ts tests/pricing.test.ts tests/assets.test.ts",
     "verify:export": "node scripts/verify-export.mjs",
