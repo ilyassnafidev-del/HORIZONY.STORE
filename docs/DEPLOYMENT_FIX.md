@@ -27,4 +27,4 @@ No forced audit fix, incompatible downgrade, validation removal, package removal
 
 ## Hostinger
 
-Redeploy the updated `main` commit with Node 24.x, build command `npm run build`, and static output `out`. This source fix does not itself confirm a completed Hostinger deployment. See `HOSTINGER.md` for the existing deployment settings and domain steps. Payment processing remains disabled.
+For a Hostinger Next.js Web App, use Node 24.x, `npm run build`, output `.next`, and `npm start`. Static-only hosting instead uses `npm run build:static` and output `out`. The postbuild verifier selects the relevant checks for each explicit build mode. Source checks do not themselves confirm a completed Hostinger deployment. See `HOSTINGER.md` for the current deployment settings and domain steps. Payment processing remains disabled.

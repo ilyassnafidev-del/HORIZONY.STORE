@@ -1,10 +1,10 @@
 # HORISONY
 
-An original contemporary fashion storefront built with Next.js App Router, React, TypeScript, Tailwind CSS and Lucide. Public pages are rendered at build time and exported as static HTML. The shopping bag and checkout validation run in the browser.
+An original contemporary fashion storefront built with Next.js App Router, React, TypeScript, Tailwind CSS and Lucide. Public pages are prerendered at build time. The default build runs as a Next.js Node.js web application; a separate static-export build is also available. The shopping bag and checkout validation run in the browser.
 
 ## Run
 
-Requires Node.js 24.x and npm. Run `npm ci`, `npm run dev`, and open the printed localhost URL. `npm run build` validates all catalog images, exports the deployable site into `out/`, then checks local production links and assets. Use `npm run typecheck` and `npm test` for checks. `npm run preview` serves the production export locally.
+Requires Node.js 24.x and npm; clean-build validation uses Node.js 24.21.0. Run `npm ci`, `npm run dev`, and open the printed localhost URL. `npm run build` validates all catalog images, creates the production `.next/` build with Webpack, then verifies its server files, prerendered routes, public assets, compiled CSS/JS and internal links. Run `npm start` to serve it. Normal builds never require `out/`. Use `npm run typecheck` and `npm test` for checks. For static hosting only, `npm run build:static` exports to `out/` and runs the static export verifier; `npm run preview` serves that export locally.
 
 Source repository: https://github.com/ilyassnafidev-del/HORIZONY.STORE (branch `main`). Production canonical origin: https://horizony.store. See [Hostinger deployment](docs/HOSTINGER.md) for build settings, domain setup, deployment and future updates. Build outputs and credentials are excluded from Git. GitHub Actions validates pushes and pull requests and provides a static build artifact; Hostinger deployment starts only after you connect this repository in hPanel.
 

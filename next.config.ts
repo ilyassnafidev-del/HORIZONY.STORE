@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 const config: NextConfig = {
-  output: "export",
+  output: process.env.HORISONY_OUTPUT === "export" ? "export" : undefined,
   trailingSlash: true,
   devIndicators: false,
   images: {

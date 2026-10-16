@@ -3,7 +3,7 @@ import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import path from 'node:path';
 
 const root = path.resolve('out');
-assert.ok(existsSync(path.join(root, 'index.html')), 'Run the production build first.');
+assert.ok(existsSync(path.join(root, 'index.html')), 'Static export missing out/index.html. Run npm run build:static; normal Node.js builds use .next and scripts/verify-build.mjs.');
 const walk = (dir) => readdirSync(dir, { withFileTypes: true }).flatMap(entry => {
   const file = path.join(dir, entry.name);
   return entry.isDirectory() ? walk(file) : [file];
