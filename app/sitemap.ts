@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { products } from "@/lib/catalog";
 import { siteConfig } from "@/lib/config";
+import { policies, policyPublication } from "@/lib/policies";
 export const dynamic = "force-static";
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -11,9 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/about",
     "/contact",
     "/shipping",
-    "/returns",
-    "/privacy",
-    "/terms",
+    ...Object.entries(policies).filter(([, policy]) => policy.ready ?? policyPublication.ready).map(([slug]) => `/${slug}`),
     ...products.map((p) => `/products/${p.slug}`),
   ].map((path) => ({
     url: `${siteConfig.origin}${path.endsWith('/') ? path : `${path}/`}`,

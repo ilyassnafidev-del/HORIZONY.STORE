@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { LockKeyhole, Check, ArrowRight } from "lucide-react";
 import { BagContents, useStore } from "./store";
+import { deliveryInformation } from "@/lib/config";
 type Values = Record<string, string>;
 const fields = [
   ["firstName", "First name", "given-name"],
@@ -234,6 +235,11 @@ export function Checkout() {
               PAYMENT UNAVAILABLE
             </button>
           </div>
+          <nav className="policy-links checkout-policy-links" aria-label="Checkout policies">
+            <Link href="/refund-policy">Refund & Cancellation Policy</Link>
+            <Link href="/privacy-policy">Privacy Policy</Link>
+            <Link href="/terms-of-service">Terms of Service</Link>
+          </nav>
         </div>
         <aside className="order-summary">
           <span className="eyebrow">YOUR SELECTION</span>
@@ -241,7 +247,7 @@ export function Checkout() {
           <BagContents summary />
           <dl>
             <div>
-              <dt>Shipping</dt>
+              <dt>Shipping cost</dt>
               <dd>Not configured</dd>
             </div>
             <div>
@@ -253,6 +259,9 @@ export function Checkout() {
               <dd>Awaiting delivery & tax setup</dd>
             </div>
           </dl>
+          <p className="note">{deliveryInformation.processing}</p>
+          <p className="note">{deliveryInformation.shipping}</p>
+          <Link className="text-link" href="/shipping">Shipping Policy</Link>
           <Link className="text-link" href="/cart">
             Edit your bag
           </Link>

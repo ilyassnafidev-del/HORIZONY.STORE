@@ -1,4 +1,5 @@
-import { siteConfig } from "./config";
+import { siteConfig, deliveryInformation } from "./config";
+import { refundPolicy } from "./refund-policy";
 export const information: Record<
   string,
   {
@@ -11,13 +12,11 @@ export const information: Record<
   contact: {
     title: "Let’s begin a conversation.",
     kicker: "THE STUDIO / CONTACT",
-    intro: "The contact channel is being configured before the store opens.",
+    intro: "Contact HORIZONY customer support on WhatsApp for product questions, cancellations, returns, refunds and privacy requests.",
     sections: [
       {
         title: "Customer support",
-        text: siteConfig.supportEmail
-          ? `Our configured support address is ${siteConfig.supportEmail}.`
-          : "A verified customer support address has not been provided. Contact functionality will be enabled once the store owner configures it.",
+        text: "WhatsApp is our sole customer support channel. Use the link below to contact us. For a request about a purchase, include your order number and a description of what you need. Do not send payment card details.",
       },
       {
         title: "Business information",
@@ -35,12 +34,20 @@ export const information: Record<
       "Delivery services are being prepared. Checkout is currently a preview.",
     sections: [
       {
+        title: "Order processing time",
+        text: deliveryInformation.processing,
+      },
+      {
+        title: "Shipping time",
+        text: deliveryInformation.shipping,
+      },
+      {
         title: "Destinations & rates",
-        text: "Shipping destinations, carriers, delivery estimates and charges have not been configured. No delivery promises or costs apply to the example catalog.",
+        text: "Shipping destinations, carriers and charges have not been configured. Checkout remains a preview and cannot accept orders.",
       },
       {
         title: "Before the store opens",
-        text: "Confirmed delivery regions, estimated timelines, tracking information and any applicable customs terms will be published here before orders can be placed.",
+        text: "The complete delivery terms, supported regions, tracking information and any applicable customs terms will be published here before orders can be placed.",
       },
       {
         title: "Shipping at checkout",
@@ -49,26 +56,10 @@ export const information: Record<
     ],
   },
   returns: {
-    title: "A considered fit.",
-    kicker: "INFORMATION / RETURNS",
-    intro:
-      "Return terms will be published before the store begins accepting orders.",
-    sections: [
-      {
-        title: "Return window & eligibility",
-        text: siteConfig.returnWindowDays
-          ? `Configured return window: ${siteConfig.returnWindowDays} days. Full eligibility terms await verification.`
-          : "The return window, item condition requirements, exclusions and return shipping responsibility have not been confirmed.",
-      },
-      {
-        title: "How returns will work",
-        text: "A verified support channel, return instructions and refund handling procedure will be configured before launch. There is no active returns portal during this storefront preview.",
-      },
-      {
-        title: "Your statutory rights",
-        text: "Final terms must reflect applicable consumer rights for the business and delivery destinations. This preview does not establish a final commercial returns policy.",
-      },
-    ],
+    title: refundPolicy.title,
+    kicker: "INFORMATION / REFUNDS & CANCELLATIONS",
+    intro: refundPolicy.description,
+    sections: refundPolicy.sections.map(section => ({ title: section.title, text: section.paragraphs.join(" ") })),
   },
   privacy: {
     title: "Your information, considered.",

@@ -3,6 +3,7 @@ import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { products } from '../lib/catalog.ts';
+import { siteConfig } from '../lib/config.ts';
 
 if (process.env.HORISONY_OUTPUT === 'export') {
   await import('./verify-export.mjs');
@@ -26,7 +27,7 @@ if (process.env.HORISONY_OUTPUT === 'export') {
   const appPaths = readManifest('server/app-paths-manifest.json');
   for (const file of Object.values(appPaths)) requireFile(path.join(build, 'server', file));
   const requiredRoutes = ['/', '/shop', '/about', '/cart', '/checkout', '/collections/t-shirts', '/collections/jackets',
-    ...['contact', 'shipping', 'returns', 'privacy', 'terms'].map(slug => '/' + slug),
+    ...['contact', 'shipping', 'returns', 'privacy', 'terms', 'refund-policy', 'privacy-policy', 'terms-of-service'].map(slug => '/' + slug),
     ...products.map(product => '/products/' + product.slug)];
   const htmlFiles = requiredRoutes.map(route => {
     assert.ok(Object.hasOwn(prerender.routes, route), `Missing prerendered storefront route: ${route}`);
@@ -63,6 +64,16 @@ if (process.env.HORISONY_OUTPUT === 'export') {
   for (const {file, url} of [...htmlFiles, ...cssFiles]) {
     const text = readFileSync(file, 'utf8');
     if (file.endsWith('.html')) {
+      assert.ok(text.includes(`href="${siteConfig.supportWhatsappUrl}"`), `Missing WhatsApp support link in ${url}`);
+      assert.ok(!text.includes('href="mailto:'), `Unexpected email contact link in ${url}`);
+      if (['/contact/', '/returns/', '/refund-policy/', '/privacy-policy/', '/terms-of-service/'].includes(url)) {
+        const links = [...text.matchAll(/<a\b[^>]*href="https:\/\/wa\.me\/14066086028"[^>]*>/g)];
+        assert.ok(links.length >= 2, `Missing page-specific WhatsApp support or footer contact in ${url}`);
+      }
+      if (['/returns/', '/refund-policy/'].includes(url)) {
+        assert.ok(!text.includes('Draft for business review'), `Unfinished refund policy in ${url}`);
+        assert.ok(text.includes('30 calendar days') && text.includes('5–10 business days'), `Missing confirmed return/refund timing in ${url}`);
+      }
       assert.ok(!text.includes('horisony-studio.sevenproject244.chatgpt.site'), `Old canonical origin in ${file}`);
       for (const match of text.matchAll(/\b(?:href|src)="([^"]*)"/g)) checkReference(match[1], url);
       for (const match of text.matchAll(/\bsrc[Ss]et="([^"]*)"/g)) {

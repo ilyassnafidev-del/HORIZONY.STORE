@@ -1459,6 +1459,72 @@ th {
   color: #69695e;
   max-width: 730px;
 }
+.policy-page h1 {
+  font-size: clamp(38px, 5.5vw, 68px);
+  overflow-wrap: anywhere;
+}
+.policy-updated {
+  margin-top: 18px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.policy-review {
+  margin-top: 30px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  background: var(--stone);
+}
+.policy-review p {
+  margin-top: 8px;
+  line-height: 1.7;
+}
+.policy-contents {
+  margin-top: 36px;
+  padding: 24px 0;
+  border-block: 1px solid var(--line);
+}
+.policy-contents h2 {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+.policy-contents ol {
+  margin: 0;
+  padding-left: 22px;
+  columns: 2 240px;
+  column-gap: 36px;
+}
+.policy-contents li {
+  padding: 5px 0 5px 3px;
+  break-inside: avoid;
+  line-height: 1.6;
+}
+.policy-page a:not(.text-link),
+.checkout-policy-links a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.policy-page .info-sections {
+  margin-top: 24px;
+}
+.policy-page .info-sections section {
+  scroll-margin-top: 120px;
+}
+.policy-page .info-sections p {
+  font-size: 15px;
+  line-height: 1.85;
+  overflow-wrap: anywhere;
+}
+.policy-page .info-sections p + p {
+  margin-top: 16px;
+}
+.policy-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 24px;
+  margin-top: 20px;
+  font-size: 13px;
+  line-height: 1.7;
+}
 @keyframes fade-in {
   from {
     opacity: 0;

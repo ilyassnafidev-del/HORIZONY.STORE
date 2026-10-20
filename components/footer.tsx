@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { SupportContact } from "./support-contact";
 export function Footer() {
   return (
     <footer className="footer">
@@ -27,13 +28,14 @@ export function Footer() {
           <span className="eyebrow">THE STUDIO</span>
           <Link href="/about">About HORISONY</Link>
           <Link href="/contact">Contact</Link>
+          <SupportContact />
         </div>
         <div>
           <span className="eyebrow">INFORMATION</span>
           <Link href="/shipping">Shipping</Link>
-          <Link href="/returns">Returns</Link>
-          <Link href="/privacy">Privacy</Link>
-          <Link href="/terms">Terms</Link>
+          <Link href="/refund-policy">Refund & Cancellation Policy</Link>
+          <Link href="/privacy-policy">Privacy Policy</Link>
+          <Link href="/terms-of-service">Terms of Service</Link>
         </div>
       </div>
       <div className="footer-bottom">
