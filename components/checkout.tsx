@@ -1,272 +1,29 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { LockKeyhole, Check, ArrowRight } from "lucide-react";
+import { ArrowRight, LockKeyhole } from "lucide-react";
 import { BagContents, useStore } from "./store";
-import { deliveryInformation } from "@/lib/config";
-type Values = Record<string, string>;
-const fields = [
-  ["firstName", "First name", "given-name"],
-  ["lastName", "Last name", "family-name"],
-  ["email", "Email address", "email"],
-  ["phone", "Phone number", "tel"],
-  ["street", "Street address", "address-line1"],
-  ["unit", "Apartment, suite or unit (optional)", "address-line2"],
-  ["city", "City", "address-level2"],
-  ["region", "State / province / region", "address-level1"],
-  ["postal", "Postal code", "postal-code"],
-];
-const countries = [
-  ["FR", "France"],
-  ["GB", "United Kingdom"],
-  ["US", "United States"],
-  ["CA", "Canada"],
-  ["DE", "Germany"],
-  ["ES", "Spain"],
-  ["IT", "Italy"],
-  ["NL", "Netherlands"],
-  ["BE", "Belgium"],
-  ["CH", "Switzerland"],
-  ["AU", "Australia"],
-  ["IE", "Ireland"],
-  ["AE", "United Arab Emirates"],
-  ["HK", "Hong Kong"],
-  ["SG", "Singapore"],
-  ["JP", "Japan"],
-];
-const noPostal = ["AE", "HK"];
-export function validateField(key: string, value: string, v: Values) {
-  const val = value.trim();
-  if (key === "unit") return "";
-  if (key === "country" && !val) return "Choose a country.";
-  if (key === "postal" && noPostal.includes(v.country)) return "";
-  if (!val)
-    return `${key === "country" ? "Choose a country" : (fields.find((f) => f[0] === key)?.[1] ?? "This field")} is required.`;
-  if (key === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val))
-    return "Enter a valid email address.";
-  if (
-    key === "phone" &&
-    (!/^[+\d\s().-]+$/.test(val) ||
-      val.replace(/\D/g, "").length < 7 ||
-      val.replace(/\D/g, "").length > 15)
-  )
-    return "Enter a phone number with 7–15 digits.";
-  if (key === "postal") {
-    const patterns: Record<string, RegExp> = {
-      FR: /^\d{5}$/,
-      US: /^\d{5}(-\d{4})?$/,
-      CA: /^[A-Z]\d[A-Z][ -]?\d[A-Z]\d$/i,
-      GB: /^[A-Z]{1,2}\d[A-Z\d]?\s?\d[A-Z]{2}$/i,
-      DE: /^\d{5}$/,
-      ES: /^\d{5}$/,
-      IT: /^\d{5}$/,
-      NL: /^\d{4}\s?[A-Z]{2}$/i,
-      BE: /^\d{4}$/,
-      CH: /^\d{4}$/,
-      AU: /^\d{4}$/,
-      IE: /^[A-Z0-9]{3}\s?[A-Z0-9]{4}$/i,
-      SG: /^\d{6}$/,
-      JP: /^\d{3}-?\d{4}$/,
-    };
-    if (patterns[v.country] && !patterns[v.country].test(val))
-      return "Enter a valid postal code for your selected country.";
-  }
-  if (val.length > 200) return "Use 200 characters or fewer.";
-  return "";
-}
-export function Checkout() {
-  const { lines, ready } = useStore();
-  const [values, setValues] = useState<Values>({ country: "" });
-  const [touched, setTouched] = useState<Record<string, boolean>>({});
-  const [checked, setChecked] = useState(false);
-  const keys = ["country", ...fields.map((f) => f[0])];
-  const errors = Object.fromEntries(
-    keys.map((key) => [key, validateField(key, values[key] ?? "", values)]),
-  );
-  const update = (key: string, value: string) => {
-    setValues((v) => ({ ...v, [key]: value }));
-    setChecked(false);
-  };
-  const checkDetails = () => {
-    setTouched(Object.fromEntries(keys.map((key) => [key, true])));
-    if (!Object.values(errors).some(Boolean)) setChecked(true);
-    else document.getElementById(keys.find((key) => errors[key])!)?.focus();
-  };
-  if (ready && !lines.length)
-    return (
-      <section className="section cart-page">
-        <h1>A considered beginning.</h1>
-        <p>
-          Your bag is empty. Choose a piece to explore the checkout preview.
-        </p>
-        <Link className="button dark" href="/shop">
-          EXPLORE THE COLLECTION <ArrowRight size={18} />
-        </Link>
-      </section>
-    );
-  return (
-    <section className="section checkout-page">
-      <span className="eyebrow">CHECKOUT / PREVIEW</span>
-      <h1>One step closer.</h1>
-      <div className="checkout-notice">
-        <LockKeyhole size={19} />
-        <div>
-          <strong>Checkout is not yet live.</strong>
-          <p>
-            This form previews the future experience. Details stay in this
-            page’s memory and are never submitted or saved. No orders can be
-            placed.
-          </p>
-        </div>
-      </div>
-      <div className="checkout-grid">
-        <div className="checkout-form" role="form" aria-label="Checkout preview">
-          <div className="checkout-step">
-            <span>01</span>
-            <h2>Your details.</h2>
-          </div>
-          <div className="form-grid">
-            {fields.slice(0, 4).map(([key, label, autocomplete]) => (
-              <label key={key}>
-                {label}
-                <input
-                  id={key}
-                  name={key}
-                  type={
-                    key === "email" ? "email" : key === "phone" ? "tel" : "text"
-                  }
-                  autoComplete={autocomplete}
-                  required
-                  maxLength={200}
-                  value={values[key] ?? ""}
-                  onChange={(e) => update(key, e.target.value)}
-                  onBlur={() => setTouched((t) => ({ ...t, [key]: true }))}
-                  aria-invalid={!!(touched[key] && errors[key])}
-                  aria-describedby={`${key}-error`}
-                />
-                <span id={`${key}-error`} className="field-error">
-                  {touched[key] ? errors[key] : ""}
-                </span>
-              </label>
-            ))}
-          </div>
-          <div className="checkout-step">
-            <span>02</span>
-            <h2>Delivery address.</h2>
-          </div>
-          <label>
-            Country
-            <select
-              id="country"
-              name="country"
-              autoComplete="country"
-              value={values.country}
-              required
-              onChange={(e) => update("country", e.target.value)}
-              onBlur={() => setTouched((t) => ({ ...t, country: true }))}
-              aria-invalid={!!(touched.country && errors.country)}
-              aria-describedby="country-error"
-            >
-              <option value="">Select country</option>
-              {countries.map(([code, name]) => (
-                <option key={code} value={code}>
-                  {name}
-                </option>
-              ))}
-            </select>
-            <span id="country-error" className="field-error">
-              {touched.country ? errors.country : ""}
-            </span>
-          </label>
-          <p className="note">
-            Countries shown for form validation only. Delivery destinations are
-            not yet confirmed.
-          </p>
-          <div className="form-grid">
-            {fields.slice(4).map(([key, label, autocomplete]) => (
-              <label
-                className={["street", "unit"].includes(key) ? "full" : ""}
-                key={key}
-              >
-                {key === "postal" && noPostal.includes(values.country)
-                  ? "Postal code (optional for this country)"
-                  : label}
-                <input
-                  id={key}
-                  name={key}
-                  autoComplete={autocomplete}
-                  required={
-                    key !== "unit" &&
-                    !(key === "postal" && noPostal.includes(values.country))
-                  }
-                  maxLength={200}
-                  value={values[key] ?? ""}
-                  onChange={(e) => update(key, e.target.value)}
-                  onBlur={() => setTouched((t) => ({ ...t, [key]: true }))}
-                  aria-invalid={!!(touched[key] && errors[key])}
-                  aria-describedby={`${key}-error`}
-                />
-                <span id={`${key}-error`} className="field-error">
-                  {touched[key] ? errors[key] : ""}
-                </span>
-              </label>
-            ))}
-          </div>
-          <button type="button" className="button outline" onClick={checkDetails}>
-            CHECK DETAILS <Check size={17} />
-          </button>
-          <p role="status" className="validation-status">
-            {checked
-              ? "Details validated for this preview. Nothing has been submitted."
-              : ""}
-          </p>
-          <div className="checkout-step">
-            <span>03</span>
-            <h2>Payment.</h2>
-          </div>
-          <div className="payment-coming">
-            <LockKeyhole />
-            <h3>Secure card payments coming soon.</h3>
-            <p>
-              Debit and credit cards will be supported through a secure payment
-              provider once order processing is configured.
-            </p>
-            <button type="button" className="button dark" disabled>
-              PAYMENT UNAVAILABLE
-            </button>
-          </div>
-          <nav className="policy-links checkout-policy-links" aria-label="Checkout policies">
-            <Link href="/refund-policy">Refund & Cancellation Policy</Link>
-            <Link href="/privacy-policy">Privacy Policy</Link>
-            <Link href="/terms-of-service">Terms of Service</Link>
-          </nav>
-        </div>
-        <aside className="order-summary">
-          <span className="eyebrow">YOUR SELECTION</span>
-          <h2>Order summary.</h2>
-          <BagContents summary />
-          <dl>
-            <div>
-              <dt>Shipping cost</dt>
-              <dd>Not configured</dd>
-            </div>
-            <div>
-              <dt>Taxes</dt>
-              <dd>Not configured</dd>
-            </div>
-            <div>
-              <dt>Final total</dt>
-              <dd>Awaiting delivery & tax setup</dd>
-            </div>
-          </dl>
-          <p className="note">{deliveryInformation.processing}</p>
-          <p className="note">{deliveryInformation.shipping}</p>
-          <Link className="text-link" href="/shipping">Shipping Policy</Link>
-          <Link className="text-link" href="/cart">
-            Edit your bag
-          </Link>
-        </aside>
-      </div>
-    </section>
-  );
+import { deliveryInformation, money } from "@/lib/config";
+import { shippingSchema, type Shipping } from "@/lib/commerce/input";
+import { SupportContact } from "./support-contact";
+
+type Country={code:string;name:string;region:boolean;postal:boolean;city:boolean;regionRequired:boolean;postalRequired:boolean;cityRequired:boolean;regionLabel:string;shippingCents:number};
+const empty:Shipping={firstName:"",lastName:"",email:"",phone:"",country:"",region:"",city:"",street:"",unit:"",postal:""};
+const fields=[ ["firstName","First name","given-name"],["lastName","Last name","family-name"],["email","Email (optional, for receipts)","email"],["phone","Phone with international country code","tel"],["street","Street address","address-line1"],["unit","Apartment / building / unit (optional)","address-line2"],["city","City","address-level2"],["region","State / province / region","address-level1"],["postal","Postal / ZIP code","postal-code"] ] as const;
+export function Checkout(){
+ const {lines,subtotal,ready}=useStore();const [values,setValues]=useState<Shipping>(empty);const [countries,setCountries]=useState<Country[]>([]);const [available,setAvailable]=useState(false);const [testMode,setTestMode]=useState(false);const [loaded,setLoaded]=useState(false);const [busy,setBusy]=useState(false);const [error,setError]=useState("");const [errors,setErrors]=useState<Record<string,string>>({});const [search,setSearch]=useState("");const [open,setOpen]=useState(false);const requestId=useRef("");
+ useEffect(()=>{let active=true;fetch("/api/checkout/config",{cache:"no-store"}).then(r=>r.json()).then(config=>{if(active){setCountries(config.countries||[]);setAvailable(Boolean(config.available));setTestMode(Boolean(config.testMode));setLoaded(true);}}).catch(()=>{if(active)setLoaded(true);});fetch("/api/orders",{cache:"no-store"}).then(r=>r.json()).then(data=>{const previous=data.orders?.find((o:{paymentStatus:string})=>["UNPAID","PENDING"].includes(o.paymentStatus));if(active&&previous){setValues(previous.shipping);setSearch(previous.shipping.country);}}).catch(()=>{});return()=>{active=false;};},[]);
+ const selected=countries.find(c=>c.code===values.country);const options=countries.filter(c=>`${c.name} ${c.code}`.toLowerCase().includes(search.toLowerCase())).slice(0,15);
+ const update=(key:keyof Shipping,value:string)=>{setValues(v=>({...v,[key]:value}));requestId.current="";setErrors(e=>({...e,[key]:""}));setError("");};
+ const choose=(country:Country)=>{setValues(v=>({...v,country:country.code,region:"",postal:"",city:""}));setSearch(country.name);setOpen(false);requestId.current="";setErrors(e=>({...e,country:""}));};
+ const submit=async(event:React.FormEvent)=>{event.preventDefault();if(busy)return;const parsed=shippingSchema.safeParse(values);if(!parsed.success){setErrors(Object.fromEntries(parsed.error.issues.map(issue=>[String(issue.path[0]),issue.message])));document.getElementById(String(parsed.error.issues[0]?.path[0]))?.focus();return;}if(!selected){setErrors({country:"Choose a supported shipping destination."});return;}if(!available){setError("Online checkout is currently unavailable. Your shopping bag has been kept.");return;}setBusy(true);setError("");try{requestId.current ||= crypto.randomUUID();const response=await fetch("/api/orders",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({requestId:requestId.current,shipping:parsed.data,items:lines})});const data=await response.json();if(data.url){window.location.assign(data.url);return;}if(data.orderId){window.location.assign(`/order-status/${data.orderId}/`);return;}throw Error(data.error||"Unable to continue. Your bag is kept.");}catch(error){setError((error as Error).message);setBusy(false);}};
+ if(ready&&!lines.length)return <section className="section cart-page"><h1>A considered beginning.</h1><p>Your bag is empty. Choose a piece to continue to checkout.</p><Link className="button dark" href="/shop">EXPLORE THE COLLECTION <ArrowRight size={18}/></Link><Link className="text-link" href="/orders">View your orders</Link></section>;
+ return <section className="section checkout-page"><span className="eyebrow">CHECKOUT / HORIZONY</span><h1>One step closer.</h1><ol className="checkout-progress" aria-label="Checkout progress"><li aria-current="step">01 · Details</li><li>02 · Secure Stripe payment</li><li>03 · Confirmation</li></ol>
+ {!available&&loaded&&<div className="checkout-notice"><LockKeyhole size={19}/><div><strong>Online checkout is not yet available.</strong><p>Your bag is kept. Contact HORIZONY for assistance.</p><SupportContact/></div></div>}
+ {available&&testMode&&<div className="checkout-notice"><strong>Stripe test mode — no real payment or shipment.</strong></div>}
+ <div className="checkout-grid"><form className="checkout-form" onSubmit={submit} noValidate><div className="checkout-step"><span>01</span><h2>Your details.</h2></div><div className="form-grid">{fields.slice(0,4).map(([key,label,auto])=><label key={key}>{label}<input id={key} name={key} type={key==="email"?"email":key==="phone"?"tel":"text"} autoComplete={auto} placeholder={key==="phone"?"+ country code and phone number":undefined} maxLength={key==="email"?254:200} required={key!=="email"} value={values[key]} onChange={e=>update(key,e.target.value)} aria-invalid={Boolean(errors[key])} aria-describedby={`${key}-error`}/><span className="field-error" id={`${key}-error`}>{errors[key]}</span></label>)}</div>
+ <div className="checkout-step"><span>02</span><h2>Delivery address.</h2></div><div className="country-picker" onBlur={event=>{if(!event.currentTarget.contains(event.relatedTarget as Node))setOpen(false);}}><label htmlFor="country">Country or region</label><input id="country" name="country" role="combobox" autoComplete="country-name" aria-autocomplete="list" aria-expanded={open} aria-controls="shipping-countries" aria-invalid={Boolean(errors.country)} aria-describedby="country-error" value={search} placeholder={loaded?"Search a shipping destination":"Loading destinations…"} onFocus={()=>setOpen(true)} onChange={e=>{setSearch(e.target.value);update("country","");setOpen(true);}} onKeyDown={e=>{if(e.key==="Escape")setOpen(false);if(e.key==="ArrowDown"){e.preventDefault();document.getElementById("shipping-country-0")?.focus();}}}/>{open&&<div id="shipping-countries" role="listbox" aria-label="Supported shipping destinations">{options.length?options.map((country,index)=><button id={`shipping-country-${index}`} role="option" aria-selected={values.country===country.code} type="button" key={country.code} onClick={()=>choose(country)}>{country.name} <span>{country.code}</span></button>):<p>No supported destinations match.</p>}</div>}<span id="country-error" className="field-error">{errors.country}</span></div>
+ <div className="form-grid">{fields.slice(4).filter(([key])=>key==="region"?selected?.region:key==="postal"?selected?.postal:key==="city"?selected?.city:true).map(([key,label,auto])=>{const required=key==="street"||(key==="region"&&selected?.regionRequired)||(key==="postal"&&selected?.postalRequired)||(key==="city"&&selected?.cityRequired);return <label className={["street","unit"].includes(key)?"full":""} key={key}>{key==="region"?selected?.regionLabel:label}{!required&&key!=="unit"?" (optional)":""}<input id={key} name={key} autoComplete={auto} required={Boolean(required)} maxLength={200} value={values[key]} onChange={e=>update(key,e.target.value)} aria-invalid={Boolean(errors[key])} aria-describedby={`${key}-error`}/><span className="field-error" id={`${key}-error`}>{errors[key]}</span></label>;})}</div>
+ <div className="checkout-step"><span>03</span><h2>Secure payment.</h2></div><p className="note">Your order is saved as unpaid before you continue to Stripe. Card details stay with Stripe. Available payment methods, including supported wallets, appear there.</p><p className="note">The final amount is shown on Stripe for your review before payment.</p><nav className="policy-links checkout-policy-links" aria-label="Checkout policies"><Link href="/refund-policy">Refund & Cancellation Policy</Link><Link href="/privacy-policy">Privacy Policy</Link><Link href="/terms-of-service">Terms of Service</Link></nav><p className="field-error" role="alert">{error}</p><button type="submit" className="button dark checkout-submit" disabled={!available||busy||!ready} aria-busy={busy}>{busy?"PREPARING SECURE PAYMENT…":testMode?"PROCEED TO TEST PAYMENT":"PROCEED TO PAYMENT"}<ArrowRight size={17}/></button><p className="note" role="status">{busy?"Saving your unpaid order and opening Stripe. Please wait.":""}</p></form>
+ <aside className="order-summary"><span className="eyebrow">YOUR SELECTION</span><h2>Order summary.</h2><BagContents summary/><dl><div><dt>Shipping</dt><dd>{selected?(selected.shippingCents===0?"Free Shipping":money(selected.shippingCents)):"Free Shipping"}</dd></div><div><dt>Items + shipping</dt><dd>{money(subtotal+(selected?.shippingCents??0))}</dd></div></dl><p className="note">{deliveryInformation.processing}</p><p className="note">{deliveryInformation.shipping}</p><Link className="text-link" href="/shipping">Shipping Policy</Link><Link className="text-link" href="/cart">Edit your bag</Link><Link className="text-link" href="/orders">Order history</Link></aside></div></section>;
 }

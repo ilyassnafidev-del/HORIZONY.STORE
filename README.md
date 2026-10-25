@@ -1,32 +1,35 @@
-# HORISONY
+# HORIZONY / HORISONY
 
-An original contemporary fashion storefront built with Next.js App Router, React, TypeScript, Tailwind CSS and Lucide. Public pages are prerendered at build time. The default build runs as a Next.js Node.js web application; a separate static-export build is also available. The shopping bag and checkout validation run in the browser.
+The existing premium apparel and accessories storefront, upgraded in place with server-side orders, Stripe hosted checkout and a private store dashboard. All 21 products, existing photographs, USD prices and normal product layouts are preserved. The wristband remains exactly $1.00 and uses the normal quantity + Add to Bag row.
 
-## Run
+## Development and build
 
-Requires Node.js 24.x and npm; clean-build validation uses Node.js 24.21.0. Run `npm ci`, `npm run dev`, and open the printed localhost URL. `npm run build` validates all catalog images, creates the production `.next/` build with Webpack, then verifies its server files, prerendered routes, public assets, compiled CSS/JS and internal links. Run `npm start` to serve it. Normal builds never require `out/`. Use `npm run typecheck` and `npm test` for checks. For static hosting only, `npm run build:static` exports to `out/` and runs the static export verifier; `npm run preview` serves that export locally.
+Node.js 24.x: `npm ci`, `npm run dev`. Production: `npm run build` and `npm start`. The build runs catalog/image/price tests plus commerce/security/PostgreSQL tests, then verifies the Next.js `.next` output and all required endpoints. `npm test` and `npm run typecheck` are also available.
 
-Source repository: https://github.com/ilyassnafidev-del/HORIZONY.STORE (branch `main`). Production canonical origin: https://horizony.store. See [Hostinger deployment](docs/HOSTINGER.md) for build settings, domain setup, deployment and future updates. Build outputs and credentials are excluded from Git. GitHub Actions validates pushes and pull requests and provides a static build artifact; Hostinger deployment starts only after you connect this repository in hPanel.
+The storefront uses a Node.js server; static exports cannot provide private order storage, authentication or Stripe webhooks. Existing catalog pages remain prerendered where possible. Checkout configuration is read securely at runtime.
 
-## Edit the store
+## Activation and private configuration
 
-- `lib/catalog.ts`: 21 products (20 original garments and the HORIZONY Essential Wristband), prices in integer cents, specifications, SKU, inventory, sizes, galleries and example measurements.
-- `lib/config.ts`: currency, locale, canonical origin, announcement, support and business information. Update currency and **all catalog prices** together when changing currency; this is not an exchange-rate conversion.
-- `lib/information.ts`: contact, shipping, returns, privacy and terms placeholders. Confirm these before commercial launch.
-- `app/globals.css`: responsive design system.
-- `public/images/`: 63 distinct AI-generated concept photographs; three views for each garment and accessory, each with 400px and 800px responsive variants. The original 24 source photos are preserved byte for byte; four prior generated views were recovered and 32 missing views were recreated from the existing garment references. Wristband image prompts and provenance are in `docs/wristband-images.json`. Original garment replacement prompts and provenance are in `docs/images-tees.json`, `docs/images-jackets.json` and `docs/images-recovered.json`. Recreated unseen rear details are inferred from each front reference.
-- `public/fonts/`: locally hosted Manrope variable font and its SIL Open Font License.
+**Payments default to disabled.** No API key, database password, webhook signing secret or admin plaintext password is in source. Copy `.env.example` only to a private ignored `.env.local` or set the variables in Hostinger.
 
-## Checkout and payment integration
+Read **[docs/COMMERCE_SETUP.md](docs/COMMERCE_SETUP.md)** for step-by-step database, Stripe test/live setup, all five Price IDs, webhook events, admin initialization and verification before activation. [docs/HOSTINGER.md](docs/HOSTINGER.md) covers deployment settings.
 
-Checkout is deliberately inactive. It validates customer fields in page memory only. It never sends or saves entered details, has no card fields, and cannot place an order. The bag uses browser localStorage with only product IDs, sizes and quantities. `lib/payment.ts` declares a hosted-checkout provider interface; its current implementation rejects session creation.
+- `npm run db:migrate`: create/update PostgreSQL tables without deleting orders.
+- `npm run admin:setup`: hidden password prompt for Ilyass; first login requires a strong password change. Production refuses weak bootstrap passwords.
+- `npm run commerce:check`: private configuration/price checks; actual Stripe test payments and endpoint delivery still need to be tested in your account.
+- Owner login: `/admin/login/`; dashboard: `/admin/`.
+- Customer history: `/orders/`; protected order status: `/order-status/<order-id>/`.
 
-Before activating payment, add a real server runtime, re-read authoritative product prices and stock, validate customer input server-side, configure destination-based shipping and taxes, create a secure provider session, verify signed webhooks, and persist orders only after provider confirmation. Never trust browser totals or store raw card data. Inventory is currently editable example data and does not reserve stock.
+## Payment and order architecture
 
-Product offers/rating structured data are deliberately omitted because merchandise and sale conditions are not yet verified. Breadcrumb schema, per-route metadata, canonical links, Open Graph, robots and sitemap are present. Cart and checkout are excluded from indexing. A private Site remains protected by hosting access controls.
+All product amounts are server-derived in integer USD cents. Submitted shipping details and an immutable product/price/quantity snapshot are saved as unpaid before Stripe opens. Mixed carts use verified Stripe Price IDs, not a fixed single-price Payment Link. Signed webhooks and server-side Stripe retrieval match the stored order, session, mode, prices, quantities and amounts before marking payment verified. Replayed events are idempotent; test orders are labeled and excluded from live revenue.
 
-## Launch configuration
+Customers see only their own session's orders. The admin requires a hashed password, protected session and authorization on every private API, with persistent login rate limiting and same-origin mutation checks. Admins can change fulfillment, notes and destination shipping rates, but cannot manually mark a payment paid. CSV exports escape spreadsheet formulas.
 
-Supply verified legal business details and support destination; replace policy placeholders; verify every price, material, measurement, care instruction and stock count against merchandise; configure delivery, tax and payment processing. Generated images represent original garment concepts, not evidence of manufactured inventory.
+Free Shipping is the initial rate for supported destinations and can be changed per country in admin. The approved shipping window is 3–7 business days from shipment, excluding processing. The searchable selector uses ISO country data and Google's licensed international address metadata. The Privacy Policy describes the implemented customer details, database, sessions, Stripe and WhatsApp flows.
 
-Performance scores are targets. Production validation checks the actual exported routes, styles, image sources, responsive image variants and font references. Passing these checks does not activate payment processing or configure a Hostinger account.
+## Catalog and assets
+
+`lib/catalog.ts` holds the 20 original garments and HORIZONY Essential Wristband. Clothing prices remain $14.95/$29.95/$44.95/$59.95, with the wristband at $1.00. Public cards and pages do not display internal tiers. The cart recomputes prices from this configuration.
+
+`public/images/` contains 63 distinct original concept photographs and their 400/800px WebP variants. Existing image provenance is in `docs/images-*.json` and `docs/wristband-images.json`. Generated concepts are not evidence of manufactured stock; no new reviews, sales figures or inventory counts have been fabricated.

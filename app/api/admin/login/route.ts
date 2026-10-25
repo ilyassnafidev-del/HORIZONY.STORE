@@ -1,0 +1,7 @@
+import { z } from "zod";
+import { query } from "@/lib/commerce/db";
+import { checkPassword, hashPassword } from "@/lib/commerce/crypto";
+import { strongPassword } from "@/lib/commerce/input";
+import { ApiError, failure, issueSession, json, rateLimit, readJson, sameOrigin, setSession } from "@/lib/commerce/security";
+export const runtime="nodejs";
+export async function POST(request:Request){try{sameOrigin(request);const parsed=z.object({username:z.string().trim().min(1).max(80),password:z.string().min(1).max(256)}).strict().safeParse(await readJson(request));if(!parsed.success)throw new ApiError(400,"Enter your username and password.");const {username,password}=parsed.data;if(process.env.NODE_ENV==="production"&&!strongPassword(password))throw new ApiError(401,"Finish secure password setup from the server terminal before production sign-in.");await rateLimit("admin-login",username.toLowerCase(),5,900);await rateLimit("admin-login-global","store",30,900);const admin=(await query("SELECT * FROM store_admins WHERE lower(username)=lower($1)",[username])).rows[0];const valid=admin?await checkPassword(password,admin.password_hash):await checkPassword(password,await hashPassword("unavailable-account"));if(!admin||!valid)throw new ApiError(401,"Invalid username or password.");const response=json({mustChangePassword:admin.must_change_password});setSession(response,"admin",await issueSession("admin",admin.id));return response;}catch(error){return failure(error);}}

@@ -3,6 +3,7 @@ node_modules/
 out/
 *.tsbuildinfo
 .env*
+!.env.example
 .sites-runtime/
 .openai/
 .DS_Store

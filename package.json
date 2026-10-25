@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "next dev --hostname 127.0.0.1",
-    "prebuild": "npm run verify:catalog",
+    "prebuild": "npm run verify:catalog && npm run test:commerce",
     "build": "next build --webpack",
     "build:static": "node scripts/build-static.mjs",
     "postbuild": "node scripts/verify-build.mjs",
@@ -18,17 +18,28 @@
     "preview": "node scripts/serve.mjs",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
-    "test": "npm run verify:catalog"
+    "test": "npm run verify:catalog && npm run test:commerce",
+    "db:migrate": "node --env-file-if-exists=.env.local --experimental-strip-types scripts/migrate.ts",
+    "admin:setup": "node --env-file-if-exists=.env.local --experimental-strip-types scripts/admin-setup.ts",
+    "test:commerce": "node --experimental-strip-types --test tests/commerce.test.ts",
+    "commerce:check": "node --env-file-if-exists=.env.local --experimental-strip-types scripts/commerce-check.ts"
   },
   "dependencies": {
+    "i18n-iso-countries": "7.14.0",
+    "libphonenumber-js": "1.13.15",
     "lucide-react": "0.468.0",
     "next": "16.4.3",
+    "pg": "8.23.1",
     "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "react-dom": "19.2.0",
+    "stripe": "23.0.1",
+    "zod": "4.6.7"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "0.5.11",
     "@tailwindcss/postcss": "4.1.18",
     "@types/node": "22.19.1",
+    "@types/pg": "8.23.1",
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
     "eslint": "9.39.1",

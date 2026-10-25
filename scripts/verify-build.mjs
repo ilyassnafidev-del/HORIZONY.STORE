@@ -26,7 +26,12 @@ if (process.env.HORISONY_OUTPUT === 'export') {
   readManifest('build-manifest.json');
   const appPaths = readManifest('server/app-paths-manifest.json');
   for (const file of Object.values(appPaths)) requireFile(path.join(build, 'server', file));
-  const requiredRoutes = ['/', '/shop', '/about', '/cart', '/checkout', '/collections/t-shirts', '/collections/jackets', '/collections/accessories',
+  for (const entry of ['/admin/page','/admin/change-password/page','/admin/orders/[id]/page','/order-status/[id]/page',
+    '/api/checkout/config/route','/api/orders/route','/api/orders/[id]/route','/api/orders/[id]/retry/route','/api/orders/[id]/verify/route','/api/stripe/webhook/route',
+    '/api/admin/login/route','/api/admin/session/route','/api/admin/password/route','/api/admin/logout/route','/api/admin/overview/route','/api/admin/orders/route','/api/admin/orders/[id]/route','/api/admin/export/route','/api/admin/shipping/route']) {
+    assert.ok(Object.hasOwn(appPaths, entry), `Missing server endpoint: ${entry}`);
+  }
+  const requiredRoutes = ['/', '/shop', '/about', '/cart', '/checkout', '/orders', '/admin/login', '/collections/t-shirts', '/collections/jackets', '/collections/accessories',
     ...['contact', 'shipping', 'returns', 'privacy', 'terms', 'refund-policy', 'privacy-policy', 'terms-of-service'].map(slug => '/' + slug),
     ...products.map(product => '/products/' + product.slug)];
   const htmlFiles = requiredRoutes.map(route => {
@@ -74,6 +79,7 @@ if (process.env.HORISONY_OUTPUT === 'export') {
         assert.ok(!text.includes('Draft for business review'), `Unfinished refund policy in ${url}`);
         assert.ok(text.includes('30 calendar days') && text.includes('5–10 business days'), `Missing confirmed return/refund timing in ${url}`);
       }
+      if (url === '/products/horizony-essential-wristband/') assert.ok(!text.includes('BUY NOW'), 'Wristband must use the standard Add to Bag layout.');
       assert.ok(!text.includes('horisony-studio.sevenproject244.chatgpt.site'), `Old canonical origin in ${file}`);
       for (const match of text.matchAll(/\b(?:href|src)="([^"]*)"/g)) checkReference(match[1], url);
       for (const match of text.matchAll(/\bsrc[Ss]et="([^"]*)"/g)) {

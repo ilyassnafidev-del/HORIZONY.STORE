@@ -2,7 +2,6 @@
 import { useState, useCallback, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import {
   Plus,
   Minus,
@@ -24,7 +23,6 @@ export function ProductDetail({ product: p }: { product: Product }) {
   const [quantity, setQuantity] = useState(1);
   const [error, setError] = useState("");
   const { add } = useStore();
-  const router = useRouter();
   const measurements = p.measurements;
   const touch = useRef<number | null>(null);
   const closeZoom = useCallback(() => setZoom(false), []);
@@ -211,11 +209,6 @@ export function ProductDetail({ product: p }: { product: Product }) {
               ADD TO BAG <ArrowRight size={17} />
             </button>
           </div>
-          {p.category === "accessories" && <button className="button outline" onClick={() => {
-            if (!size) { setError("Choose your size before continuing to checkout."); return; }
-            add(p.id, size, quantity, false);
-            router.push("/checkout");
-          }}>BUY NOW <ArrowRight size={17} /></button>}
           <p className="product-caption">
             {p.fit}{p.category !== "accessories" && " · All four sizes available in the example catalog."}
           </p>
@@ -238,7 +231,7 @@ export function ProductDetail({ product: p }: { product: Product }) {
             <details>
               <summary>Shipping & returns</summary>
               <p>
-                {p.category === "accessories" ? `${deliveryInformation.shipping} Return requests are accepted within 30 calendar days after delivery. Delivery destinations and rates are not yet configured; checkout remains a preview.` : "Delivery destinations, rates and return terms are being configured. Checkout is a preview."}
+                {`${deliveryInformation.shipping} Return requests are accepted within 30 calendar days after delivery. Supported destinations and shipping charges are shown at checkout.`}
               </p>
               <Link className="text-link" href="/shipping">
                 Shipping information
@@ -249,7 +242,7 @@ export function ProductDetail({ product: p }: { product: Product }) {
             </details>
           </div>
           <p className="catalog-note">
-            {p.category === "accessories" ? "Original product concept imagery. Checkout is currently a preview; no payment is taken." : "Original concept imagery. Product specifications, prices, sizing and inventory are initial example data, awaiting merchandise verification."}
+            {p.category === "accessories" ? "Original product concept imagery." : "Original concept imagery. Product specifications, prices, sizing and inventory are initial example data, awaiting merchandise verification."}
           </p>
         </div>
       </section>

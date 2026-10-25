@@ -1,8 +1,8 @@
 import { Checkout } from "@/components/checkout";
 export const metadata = {
-  title: "Checkout preview",
+  title: "Checkout",
   description:
-    "Preview the HORISONY checkout experience. Card payments and order processing are not yet active.",
+    "Review your HORIZONY bag, delivery details and secure payment options.",
   robots: { index: false, follow: true },
   alternates: { canonical: "/checkout/" },
 };

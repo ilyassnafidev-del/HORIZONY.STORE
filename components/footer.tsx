@@ -29,6 +29,7 @@ export function Footer() {
           <span className="eyebrow">THE STUDIO</span>
           <Link href="/about">About HORISONY</Link>
           <Link href="/contact">Contact</Link>
+          <Link href="/orders">Your orders</Link>
           <SupportContact />
         </div>
         <div>
@@ -42,7 +43,7 @@ export function Footer() {
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} HORISONY</span>
         <span>Collection 01 · A considered beginning</span>
-        <span>Storefront preview · Example catalog</span>
+        <span>Clothing · Accessories · Everyday expression</span>
       </div>
     </footer>
   );

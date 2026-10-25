@@ -31,7 +31,7 @@ export const information: Record<
     title: "The journey to your everyday.",
     kicker: "INFORMATION / SHIPPING",
     intro:
-      "Delivery services are being prepared. Checkout is currently a preview.",
+      "Delivery details for your everyday essentials. Supported destinations and shipping charges are displayed at checkout.",
     sections: [
       {
         title: "Order processing time",
@@ -43,15 +43,15 @@ export const information: Record<
       },
       {
         title: "Destinations & rates",
-        text: "Shipping destinations, carriers and charges have not been configured. Checkout remains a preview and cannot accept orders.",
+        text: "We offer delivery to European destinations, the United States, Canada, Australia and the United Kingdom listed in checkout. The current shipping charge is shown before payment; Free Shipping appears for a $0.00 rate.",
       },
       {
-        title: "Before the store opens",
-        text: "The complete delivery terms, supported regions, tracking information and any applicable customs terms will be published here before orders can be placed.",
+        title: "Delivery arrangements",
+        text: "Use the checkout country selector to confirm a supported destination. Contact customer support about delivery arrangements, shipment status or delays.",
       },
       {
         title: "Shipping at checkout",
-        text: "A final order total will be available only after destination-based delivery and tax rates are configured. Your current bag shows a merchandise subtotal only.",
+        text: "Your bag shows the items subtotal. Shipping is displayed at checkout, and Stripe shows the final amount for your review before payment. Saved order shipping charges do not change if a destination rate is updated later.",
       },
     ],
   },

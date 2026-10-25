@@ -1,0 +1,6 @@
+import { randomBytes, scrypt as scryptCallback, timingSafeEqual, createHash } from "node:crypto";
+export const tokenHash=(value:string)=>createHash("sha256").update(value).digest("hex");
+function derive(password:string,salt:string,legacy=false){return new Promise<Buffer>((resolve,reject)=>scryptCallback(password,salt,64,{N:legacy?16384:32768,r:8,p:legacy?1:3,maxmem:64*1024*1024},(error,key)=>error?reject(error):resolve(key)));}
+export async function hashPassword(password:string){const salt=randomBytes(24).toString("hex");const hash=await derive(password,salt);return `scrypt-v2$${salt}$${hash.toString("hex")}`;}
+export async function checkPassword(password:string,encoded:string){try{if(password.length>256)return false;const [algorithm,salt,hash]=encoded.split("$");if(!["scrypt","scrypt-v2"].includes(algorithm)||!salt||!hash)return false;const expected=Buffer.from(hash,"hex");const actual=await derive(password,salt,algorithm==="scrypt");return expected.length===actual.length&&timingSafeEqual(expected,actual);}catch{return false;}}
+export function csvCell(value:unknown){let text=String(value??"");if(/^[\s]*[=+@\-]/.test(text)||/^[\t\r]/.test(text))text="'"+text;return '"'+text.replaceAll('"','""')+'"';}

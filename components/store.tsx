@@ -13,7 +13,7 @@ import Image from "next/image";
 import { X, Plus, Minus, ArrowRight } from "lucide-react";
 import { products, quantityLimit, type Size } from "@/lib/catalog";
 import { money } from "@/lib/config";
-import { normalizeCart, cartSubtotal, type CartLine } from "@/lib/cart";
+import { normalizeCart, cartSubtotal, settlePaidOrder, type BagState, type CartLine } from "@/lib/cart";
 type Store = {
   lines: CartLine[];
   count: number;
@@ -22,6 +22,7 @@ type Store = {
   setOpen: (v: boolean) => void;
   add: (id: string, size: Size, quantity: number, openBag?: boolean) => void;
   update: (id: string, size: Size, quantity: number) => void;
+  consumeOrder: (orderId:string,items:CartLine[])=>void;
   ready: boolean;
 };
 const StoreContext = createContext<Store | null>(null);
@@ -104,15 +105,17 @@ export function Modal({
   );
 }
 export function StoreProvider({ children }: { children: ReactNode }) {
-  const [lines, setLines] = useState<CartLine[]>([]);
+  const [bag,setBag]=useState<BagState>({lines:[],consumed:[]});
+  const lines=bag.lines;
+  const setLines=(change:CartLine[]|((current:CartLine[])=>CartLine[]))=>setBag(current=>({...current,lines:typeof change==="function"?change(current.lines):change}));
+  const consumeOrder=useCallback((orderId:string,items:CartLine[])=>setBag(current=>settlePaidOrder(current,orderId,items)),[]);
   const [ready, setReady] = useState(false);
   const [open, setOpen] = useState(false);
   useEffect(() => {
     try {
-      const data = JSON.parse(localStorage.getItem("horisony-bag-v1") || "[]");
-      /* eslint-disable react-hooks/set-state-in-effect -- restore persisted browser state after hydration */ setLines(
-        normalizeCart(data, products),
-      );
+      const stored=localStorage.getItem("horizony-bag-v2");
+      const data=stored?JSON.parse(stored):{lines:JSON.parse(localStorage.getItem("horisony-bag-v1")||"[]"),consumed:[]};
+      /* eslint-disable react-hooks/set-state-in-effect -- restore persisted browser state after hydration */ setBag({lines:normalizeCart(data.lines,products),consumed:Array.isArray(data.consumed)?data.consumed.filter((id:unknown)=>typeof id==="string"):[]});
     } catch {}
     setReady(true); /* eslint-enable react-hooks/set-state-in-effect */
   }, []);
@@ -120,13 +123,15 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     if (ready)
       try {
         localStorage.setItem("horisony-bag-v1", JSON.stringify(lines));
+        localStorage.setItem("horizony-bag-v2",JSON.stringify(bag));
       } catch {}
-  }, [lines, ready]);
+  }, [bag, lines, ready]);
   useEffect(() => {
     const listener = (e: StorageEvent) => {
-      if (e.key === "horisony-bag-v1")
+      if (e.key === "horizony-bag-v2")
         try {
-          setLines(normalizeCart(JSON.parse(e.newValue || "[]"), products));
+          const data=JSON.parse(e.newValue||'{"lines":[],"consumed":[]}');
+          setBag({lines:normalizeCart(data.lines,products),consumed:Array.isArray(data.consumed)?data.consumed.filter((id:unknown)=>typeof id==="string"):[]});
         } catch {}
     };
     window.addEventListener("storage", listener);
@@ -159,6 +164,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         setOpen,
         add,
         update,
+        consumeOrder,
         count: lines.reduce((n, l) => n + l.quantity, 0),
         subtotal: cartSubtotal(lines, products),
       }}
@@ -272,7 +278,7 @@ export function BagContents({
           <strong>{money(subtotal)}</strong>
         </p>
         <p className="muted">
-          Delivery and taxes await configuration. Final total unavailable.
+          Shipping is shown at checkout. Review the final amount on Stripe before payment.
         </p>
         {!summary && (
           <>
@@ -283,7 +289,7 @@ export function BagContents({
             >
               CONTINUE TO CHECKOUT <ArrowRight size={17} />
             </Link>
-            <p className="note">Checkout preview · Payments coming soon</p>
+            <p className="note">Continue to checkout for availability and payment options.</p>
             {drawer && (
               <Link
                 className="text-link"

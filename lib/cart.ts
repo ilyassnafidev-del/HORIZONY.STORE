@@ -1,6 +1,11 @@
 import type { Product, Size } from "./catalog";
 import { productSizes, quantityLimit } from "./catalog.ts";
 export type CartLine = { productId: string; size: Size; quantity: number };
+export type BagState = {lines:CartLine[];consumed:string[]};
+export function settlePaidOrder(state:BagState,id:string,purchased:CartLine[]):BagState{
+  if(state.consumed.includes(id))return state;
+  return {consumed:[...state.consumed,id],lines:state.lines.map(line=>({...line,quantity:Math.max(0,line.quantity-purchased.filter(p=>p.productId===line.productId&&p.size===line.size).reduce((sum,p)=>sum+p.quantity,0))})).filter(line=>line.quantity>0)};
+}
 export function normalizeCart(value: unknown, products: Product[]): CartLine[] {
   if (!Array.isArray(value)) return [];
   const lines: CartLine[] = [];

@@ -1,0 +1,1520 @@
+{
+  "AC": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C%n%Z",
+    "state": "state",
+    "zip": null
+  },
+  "AD": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "AE": {
+    "require": "AS",
+    "fmt": "%N%n%O%n%A%n%S",
+    "state": "emirate",
+    "zip": null
+  },
+  "AF": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C%n%Z",
+    "state": "state",
+    "zip": null
+  },
+  "AG": {
+    "require": "A",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "AI": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C%n%Z",
+    "state": "state",
+    "zip": null
+  },
+  "AL": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "AM": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z%n%C%n%S",
+    "state": "state",
+    "zip": null
+  },
+  "AO": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "AQ": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "AR": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C%n%S",
+    "state": "state",
+    "zip": null
+  },
+  "AS": {
+    "require": "ACSZ",
+    "fmt": "%N%n%O%n%A%n%C %S %Z",
+    "state": "state",
+    "zip": null
+  },
+  "AT": {
+    "require": "ACZ",
+    "fmt": "%O%n%N%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "AU": {
+    "require": "ACSZ",
+    "fmt": "%O%n%N%n%A%n%C %S %Z",
+    "state": "state",
+    "zip": null
+  },
+  "AW": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "AX": {
+    "require": "ACZ",
+    "fmt": "%O%n%N%n%A%nAX-%Z %C%nÅLAND",
+    "state": "state",
+    "zip": null
+  },
+  "AZ": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%nAZ %Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "BA": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "BB": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C, %S %Z",
+    "state": "parish",
+    "zip": null
+  },
+  "BD": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C - %Z",
+    "state": "state",
+    "zip": null
+  },
+  "BE": {
+    "require": "ACZ",
+    "fmt": "%O%n%N%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "BF": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C %X",
+    "state": "state",
+    "zip": null
+  },
+  "BG": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "BH": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C %Z",
+    "state": "state",
+    "zip": null
+  },
+  "BI": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "BJ": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "BL": {
+    "require": "ACZ",
+    "fmt": "%O%n%N%n%A%n%Z %C %X",
+    "state": "state",
+    "zip": null
+  },
+  "BM": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C %Z",
+    "state": "state",
+    "zip": null
+  },
+  "BN": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C %Z",
+    "state": "state",
+    "zip": null
+  },
+  "BO": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "BQ": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "BR": {
+    "require": "ASCZ",
+    "fmt": "%O%n%N%n%A%n%D%n%C-%S%n%Z",
+    "state": "state",
+    "zip": null
+  },
+  "BS": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C, %S",
+    "state": "island",
+    "zip": null
+  },
+  "BT": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C %Z",
+    "state": "state",
+    "zip": null
+  },
+  "BV": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "BW": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "BY": {
+    "require": "AC",
+    "fmt": "%O%n%N%n%A%n%Z, %C%n%S",
+    "state": "state",
+    "zip": null
+  },
+  "BZ": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "CA": {
+    "require": "ACSZ",
+    "fmt": "%N%n%O%n%A%n%C %S %Z",
+    "state": "state",
+    "zip": null
+  },
+  "CC": {
+    "require": "AC",
+    "fmt": "%O%n%N%n%A%n%C %S %Z",
+    "state": "state",
+    "zip": null
+  },
+  "CD": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "CF": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "CG": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "CH": {
+    "require": "ACZ",
+    "fmt": "%O%n%N%n%A%nCH-%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "CI": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%X %A %C %X",
+    "state": "state",
+    "zip": null
+  },
+  "CK": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "CL": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C%n%S",
+    "state": "state",
+    "zip": null
+  },
+  "CM": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "CN": {
+    "require": "ACSZ",
+    "fmt": "%Z%n%S%C%D%n%A%n%O%n%N",
+    "state": "state",
+    "zip": null
+  },
+  "CO": {
+    "require": "AS",
+    "fmt": "%N%n%O%n%A%n%D%n%C, %S, %Z",
+    "state": "department",
+    "zip": null
+  },
+  "CR": {
+    "require": "ACS",
+    "fmt": "%N%n%O%n%A%n%S, %C%n%Z",
+    "state": "state",
+    "zip": null
+  },
+  "CU": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C %S%n%Z",
+    "state": "state",
+    "zip": null
+  },
+  "CV": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C%n%S",
+    "state": "island",
+    "zip": null
+  },
+  "CW": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "CX": {
+    "require": "AC",
+    "fmt": "%O%n%N%n%A%n%C %S %Z",
+    "state": "state",
+    "zip": null
+  },
+  "CY": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "CZ": {
+    "require": "ACZ",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "DE": {
+    "require": "ACZ",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "DJ": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "DK": {
+    "require": "ACZ",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "DM": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "DO": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "DZ": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "EC": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "EE": {
+    "require": "ACZ",
+    "fmt": "%N%n%O%n%A%n%Z %C %S",
+    "state": "state",
+    "zip": null
+  },
+  "EG": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C%n%S%n%Z",
+    "state": "state",
+    "zip": null
+  },
+  "EH": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "ER": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "ES": {
+    "require": "ACSZ",
+    "fmt": "%N%n%O%n%A%n%Z %C %S",
+    "state": "state",
+    "zip": null
+  },
+  "ET": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "FI": {
+    "require": "ACZ",
+    "fmt": "%O%n%N%n%A%nFI-%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "FJ": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "FK": {
+    "require": "ACZ",
+    "fmt": "%N%n%O%n%A%n%C%n%Z",
+    "state": "state",
+    "zip": null
+  },
+  "FM": {
+    "require": "ACSZ",
+    "fmt": "%N%n%O%n%A%n%C %S %Z",
+    "state": "state",
+    "zip": null
+  },
+  "FO": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%nFO%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "FR": {
+    "require": "ACZ",
+    "fmt": "%O%n%N%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "GA": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "GB": {
+    "require": "ACZ",
+    "fmt": "%N%n%O%n%A%n%C%n%Z",
+    "state": "state",
+    "zip": null
+  },
+  "GD": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "GE": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "GF": {
+    "require": "ACZ",
+    "fmt": "%O%n%N%n%A%n%Z %C %X",
+    "state": "state",
+    "zip": null
+  },
+  "GG": {
+    "require": "ACZ",
+    "fmt": "%N%n%O%n%A%n%C%nGUERNSEY%n%Z",
+    "state": "state",
+    "zip": null
+  },
+  "GH": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "GI": {
+    "require": "A",
+    "fmt": "%N%n%O%n%A%nGIBRALTAR%n%Z",
+    "state": "state",
+    "zip": null
+  },
+  "GL": {
+    "require": "ACZ",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "GM": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "GN": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%Z %A %C",
+    "state": "state",
+    "zip": null
+  },
+  "GP": {
+    "require": "ACZ",
+    "fmt": "%O%n%N%n%A%n%Z %C %X",
+    "state": "state",
+    "zip": null
+  },
+  "GQ": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "GR": {
+    "require": "ACZ",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "GS": {
+    "require": "ACZ",
+    "fmt": "%N%n%O%n%A%n%n%C%n%Z",
+    "state": "state",
+    "zip": null
+  },
+  "GT": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z- %C",
+    "state": "state",
+    "zip": null
+  },
+  "GU": {
+    "require": "ACZ",
+    "fmt": "%N%n%O%n%A%n%C %Z",
+    "state": "state",
+    "zip": null
+  },
+  "GW": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "GY": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "HK": {
+    "require": "AS",
+    "fmt": "%S%n%C%n%A%n%O%n%N",
+    "state": "area",
+    "zip": null
+  },
+  "HM": {
+    "require": "AC",
+    "fmt": "%O%n%N%n%A%n%C %S %Z",
+    "state": "state",
+    "zip": null
+  },
+  "HN": {
+    "require": "ACS",
+    "fmt": "%N%n%O%n%A%n%C, %S%n%Z",
+    "state": "department",
+    "zip": null
+  },
+  "HR": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%nHR-%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "HT": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%nHT%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "HU": {
+    "require": "ACZ",
+    "fmt": "%N%n%O%n%C%n%A%n%Z",
+    "state": "state",
+    "zip": null
+  },
+  "ID": {
+    "require": "AS",
+    "fmt": "%N%n%O%n%A%n%C%n%S %Z",
+    "state": "state",
+    "zip": null
+  },
+  "IE": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%D%n%C%n%S%n%Z",
+    "state": "county",
+    "zip": null
+  },
+  "IL": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C %Z",
+    "state": "state",
+    "zip": null
+  },
+  "IM": {
+    "require": "ACZ",
+    "fmt": "%N%n%O%n%A%n%C%n%Z",
+    "state": "state",
+    "zip": null
+  },
+  "IN": {
+    "require": "ACSZ",
+    "fmt": "%N%n%O%n%A%n%T%n%F%n%L%n%C %Z%n%S",
+    "state": "state",
+    "zip": null
+  },
+  "IO": {
+    "require": "ACZ",
+    "fmt": "%N%n%O%n%A%n%C%n%Z",
+    "state": "state",
+    "zip": null
+  },
+  "IQ": {
+    "require": "ACS",
+    "fmt": "%O%n%N%n%A%n%C, %S%n%Z",
+    "state": "state",
+    "zip": null
+  },
+  "IR": {
+    "require": "AC",
+    "fmt": "%O%n%N%n%S%n%C, %D%n%A%n%Z",
+    "state": "state",
+    "zip": null
+  },
+  "IS": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "IT": {
+    "require": "ACSZ",
+    "fmt": "%N%n%O%n%A%n%Z %C %S",
+    "state": "state",
+    "zip": null
+  },
+  "JE": {
+    "require": "ACZ",
+    "fmt": "%N%n%O%n%A%n%C%nJERSEY%n%Z",
+    "state": "state",
+    "zip": null
+  },
+  "JM": {
+    "require": "ACS",
+    "fmt": "%N%n%O%n%A%n%C%n%S %X",
+    "state": "parish",
+    "zip": null
+  },
+  "JO": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C %Z",
+    "state": "state",
+    "zip": null
+  },
+  "JP": {
+    "require": "ASZ",
+    "fmt": "〒%Z%n%S%n%A%n%O%n%N",
+    "state": "prefecture",
+    "zip": null
+  },
+  "KE": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C%n%Z",
+    "state": "state",
+    "zip": null
+  },
+  "KG": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "KH": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C %Z",
+    "state": "state",
+    "zip": null
+  },
+  "KI": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%S%n%C",
+    "state": "island",
+    "zip": null
+  },
+  "KM": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "KN": {
+    "require": "ACS",
+    "fmt": "%N%n%O%n%A%n%C, %S",
+    "state": "island",
+    "zip": null
+  },
+  "KP": {
+    "require": "AC",
+    "fmt": "%Z%n%S%n%C%n%A%n%O%n%N",
+    "state": "state",
+    "zip": null
+  },
+  "KR": {
+    "require": "ACSZ",
+    "fmt": "%S %C%D%n%A%n%O%n%N%n%Z",
+    "state": "do_si",
+    "zip": null
+  },
+  "KW": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "KY": {
+    "require": "AS",
+    "fmt": "%N%n%O%n%A%n%S %Z",
+    "state": "island",
+    "zip": null
+  },
+  "KZ": {
+    "require": "AC",
+    "fmt": "%Z%n%S%n%C%n%A%n%O%n%N",
+    "state": "state",
+    "zip": null
+  },
+  "LA": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "LB": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C %Z",
+    "state": "state",
+    "zip": null
+  },
+  "LC": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "LI": {
+    "require": "ACZ",
+    "fmt": "%O%n%N%n%A%nFL-%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "LK": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C%n%Z",
+    "state": "state",
+    "zip": null
+  },
+  "LR": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "LS": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C %Z",
+    "state": "state",
+    "zip": null
+  },
+  "LT": {
+    "require": "ACZ",
+    "fmt": "%O%n%N%n%A%nLT-%Z %C %S",
+    "state": "state",
+    "zip": null
+  },
+  "LU": {
+    "require": "ACZ",
+    "fmt": "%O%n%N%n%A%nL-%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "LV": {
+    "require": "ACZ",
+    "fmt": "%N%n%O%n%A%n%S%n%C, %Z",
+    "state": "state",
+    "zip": null
+  },
+  "LY": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "MA": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "MC": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%nMC-%Z %C %X",
+    "state": "state",
+    "zip": null
+  },
+  "MD": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%nMD-%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "ME": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "MF": {
+    "require": "ACZ",
+    "fmt": "%O%n%N%n%A%n%Z %C %X",
+    "state": "state",
+    "zip": null
+  },
+  "MG": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "MH": {
+    "require": "ACSZ",
+    "fmt": "%N%n%O%n%A%n%C %S %Z",
+    "state": "state",
+    "zip": null
+  },
+  "MK": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "ML": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "MM": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C, %Z",
+    "state": "state",
+    "zip": null
+  },
+  "MN": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C%n%S %Z",
+    "state": "state",
+    "zip": null
+  },
+  "MO": {
+    "require": "A",
+    "fmt": "%A%n%O%n%N",
+    "state": "state",
+    "zip": null
+  },
+  "MP": {
+    "require": "ACSZ",
+    "fmt": "%N%n%O%n%A%n%C %S %Z",
+    "state": "state",
+    "zip": null
+  },
+  "MQ": {
+    "require": "ACZ",
+    "fmt": "%O%n%N%n%A%n%Z %C %X",
+    "state": "state",
+    "zip": null
+  },
+  "MR": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "MS": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "MT": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C %Z",
+    "state": "state",
+    "zip": null
+  },
+  "MU": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "MV": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C %Z",
+    "state": "state",
+    "zip": null
+  },
+  "MW": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C %X",
+    "state": "state",
+    "zip": null
+  },
+  "MX": {
+    "require": "ACSZ",
+    "fmt": "%N%n%O%n%A%n%D%n%Z %C, %S",
+    "state": "state",
+    "zip": null
+  },
+  "MY": {
+    "require": "ACZ",
+    "fmt": "%N%n%O%n%A%n%D%n%Z %C%n%S",
+    "state": "state",
+    "zip": null
+  },
+  "MZ": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C%S",
+    "state": "state",
+    "zip": null
+  },
+  "NA": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C%n%Z",
+    "state": "state",
+    "zip": null
+  },
+  "NC": {
+    "require": "ACZ",
+    "fmt": "%O%n%N%n%A%n%Z %C %X",
+    "state": "state",
+    "zip": null
+  },
+  "NE": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "NF": {
+    "require": "AC",
+    "fmt": "%O%n%N%n%A%n%C %S %Z",
+    "state": "state",
+    "zip": null
+  },
+  "NG": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%D%n%C %Z%n%S",
+    "state": "state",
+    "zip": null
+  },
+  "NI": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z%n%C, %S",
+    "state": "department",
+    "zip": null
+  },
+  "NL": {
+    "require": "ACZ",
+    "fmt": "%O%n%N%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "NO": {
+    "require": "ACZ",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "NP": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C %Z",
+    "state": "state",
+    "zip": null
+  },
+  "NR": {
+    "require": "AS",
+    "fmt": "%N%n%O%n%A%n%S",
+    "state": "district",
+    "zip": null
+  },
+  "NU": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "NZ": {
+    "require": "ACDZ",
+    "fmt": "%N%n%O%n%A%n%D%n%C %Z",
+    "state": "state",
+    "zip": null
+  },
+  "OM": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "PA": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C%n%S",
+    "state": "state",
+    "zip": null
+  },
+  "PE": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C %Z%n%S",
+    "state": "state",
+    "zip": null
+  },
+  "PF": {
+    "require": "ACSZ",
+    "fmt": "%N%n%O%n%A%n%Z %C %S",
+    "state": "island",
+    "zip": null
+  },
+  "PG": {
+    "require": "ACS",
+    "fmt": "%N%n%O%n%A%n%C %Z %S",
+    "state": "state",
+    "zip": null
+  },
+  "PH": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%D, %C%n%Z %S",
+    "state": "state",
+    "zip": null
+  },
+  "PK": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%D%n%C-%Z",
+    "state": "state",
+    "zip": null
+  },
+  "PL": {
+    "require": "ACZ",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "PM": {
+    "require": "ACZ",
+    "fmt": "%O%n%N%n%A%n%Z %C %X",
+    "state": "state",
+    "zip": null
+  },
+  "PN": {
+    "require": "ACZ",
+    "fmt": "%N%n%O%n%A%n%C%n%Z",
+    "state": "state",
+    "zip": null
+  },
+  "PR": {
+    "require": "ACZ",
+    "fmt": "%N%n%O%n%A%n%C PR %Z",
+    "state": "state",
+    "zip": null
+  },
+  "PS": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "PT": {
+    "require": "ACZ",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "PW": {
+    "require": "ACSZ",
+    "fmt": "%N%n%O%n%A%n%C %S %Z",
+    "state": "state",
+    "zip": null
+  },
+  "PY": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "QA": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "RE": {
+    "require": "ACZ",
+    "fmt": "%O%n%N%n%A%n%Z %C %X",
+    "state": "state",
+    "zip": null
+  },
+  "RO": {
+    "require": "ACZ",
+    "fmt": "%N%n%O%n%A%n%Z %S %C",
+    "state": "state",
+    "zip": null
+  },
+  "RS": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "RU": {
+    "require": "ACSZ",
+    "fmt": "%N%n%O%n%A%n%C%n%S%n%Z",
+    "state": "oblast",
+    "zip": null
+  },
+  "RW": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "SA": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C %Z",
+    "state": "state",
+    "zip": null
+  },
+  "SB": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "SC": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C%n%S",
+    "state": "island",
+    "zip": null
+  },
+  "SD": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C%n%Z",
+    "state": "state",
+    "zip": null
+  },
+  "SE": {
+    "require": "ACZ",
+    "fmt": "%O%n%N%n%A%nSE-%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "SG": {
+    "require": "AZ",
+    "fmt": "%N%n%O%n%A%nSINGAPORE %Z",
+    "state": "state",
+    "zip": null
+  },
+  "SH": {
+    "require": "ACZ",
+    "fmt": "%N%n%O%n%A%n%C%n%Z",
+    "state": "state",
+    "zip": null
+  },
+  "SI": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%nSI-%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "SJ": {
+    "require": "ACZ",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "SK": {
+    "require": "ACZ",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "SL": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "SM": {
+    "require": "AZ",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "SN": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "SO": {
+    "require": "ACS",
+    "fmt": "%N%n%O%n%A%n%C, %S %Z",
+    "state": "state",
+    "zip": null
+  },
+  "SR": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C%n%S",
+    "state": "state",
+    "zip": null
+  },
+  "SS": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "ST": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "SV": {
+    "require": "ACS",
+    "fmt": "%N%n%O%n%A%n%Z-%C%n%S",
+    "state": "state",
+    "zip": null
+  },
+  "SX": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "SY": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "SZ": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C%n%Z",
+    "state": "state",
+    "zip": null
+  },
+  "TA": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C%n%Z",
+    "state": "state",
+    "zip": null
+  },
+  "TC": {
+    "require": "ACZ",
+    "fmt": "%N%n%O%n%A%n%C%n%Z",
+    "state": "state",
+    "zip": null
+  },
+  "TD": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "TF": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "TG": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "TH": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%D %C%n%S %Z",
+    "state": "state",
+    "zip": null
+  },
+  "TJ": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "TK": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "TL": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "TM": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "TN": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "TO": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "TR": {
+    "require": "ACZ",
+    "fmt": "%N%n%O%n%A%n%Z %C/%S",
+    "state": "state",
+    "zip": null
+  },
+  "TT": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C%n%Z",
+    "state": "state",
+    "zip": null
+  },
+  "TV": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C%n%S",
+    "state": "island",
+    "zip": null
+  },
+  "TW": {
+    "require": "ACSZ",
+    "fmt": "%Z%n%S%C%n%A%n%O%n%N",
+    "state": "county",
+    "zip": null
+  },
+  "TZ": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "UA": {
+    "require": "ACZ",
+    "fmt": "%N%n%O%n%A%n%C%n%S%n%Z",
+    "state": "oblast",
+    "zip": null
+  },
+  "UG": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "UM": {
+    "require": "ACS",
+    "fmt": "%N%n%O%n%A%n%C %S %Z",
+    "state": "state",
+    "zip": null
+  },
+  "US": {
+    "require": "ACSZ",
+    "fmt": "%N%n%O%n%A%n%C, %S %Z",
+    "state": "state",
+    "zip": null
+  },
+  "UY": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C %S",
+    "state": "state",
+    "zip": null
+  },
+  "UZ": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C%n%S",
+    "state": "state",
+    "zip": null
+  },
+  "VA": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "VC": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C %Z",
+    "state": "state",
+    "zip": null
+  },
+  "VE": {
+    "require": "ACS",
+    "fmt": "%N%n%O%n%A%n%C %Z, %S",
+    "state": "state",
+    "zip": null
+  },
+  "VG": {
+    "require": "A",
+    "fmt": "%N%n%O%n%A%n%C%n%Z",
+    "state": "state",
+    "zip": null
+  },
+  "VI": {
+    "require": "ACSZ",
+    "fmt": "%N%n%O%n%A%n%C %S %Z",
+    "state": "state",
+    "zip": null
+  },
+  "VN": {
+    "require": "AS",
+    "fmt": "%N%n%O%n%A%n%C%n%S %Z",
+    "state": "state",
+    "zip": null
+  },
+  "VU": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "WF": {
+    "require": "ACZ",
+    "fmt": "%O%n%N%n%A%n%Z %C %X",
+    "state": "state",
+    "zip": null
+  },
+  "WS": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "XK": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "YE": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "YT": {
+    "require": "ACZ",
+    "fmt": "%O%n%N%n%A%n%Z %C %X",
+    "state": "state",
+    "zip": null
+  },
+  "ZA": {
+    "require": "ACZ",
+    "fmt": "%N%n%O%n%A%n%D%n%C%n%Z",
+    "state": "state",
+    "zip": null
+  },
+  "ZM": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%Z %C",
+    "state": "state",
+    "zip": null
+  },
+  "ZW": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "state",
+    "zip": null
+  },
+  "ZZ": {
+    "require": "AC",
+    "fmt": "%N%n%O%n%A%n%C",
+    "state": "province",
+    "zip": null
+  }
+}
