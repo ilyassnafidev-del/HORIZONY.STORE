@@ -23,6 +23,7 @@ export function Footer() {
           </Link>
           <Link href="/collections/t-shirts">T-Shirts</Link>
           <Link href="/collections/jackets">Jackets</Link>
+          <Link href="/collections/accessories">Accessories</Link>
         </div>
         <div>
           <span className="eyebrow">THE STUDIO</span>

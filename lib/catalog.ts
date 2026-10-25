@@ -1,5 +1,8 @@
 export const sizes = ["S", "L", "XL", "XXL"] as const;
-export type Size = (typeof sizes)[number];
+export type ClothingSize = (typeof sizes)[number];
+export type Size = ClothingSize | "One size";
+export type Category = "t-shirts" | "jackets" | "accessories";
+export const categoryNames = { "t-shirts": "T-Shirts", jackets: "Jackets", accessories: "Accessories" } as const;
 // Internal pricing configuration in USD cents. Tier names are never rendered.
 export const priceTiers = {
   basic: 1495,
@@ -12,7 +15,7 @@ export type Product = {
   id: string;
   slug: string;
   name: string;
-  category: "t-shirts" | "jackets";
+  category: Category;
   color: string;
   hex: string;
   price: number;
@@ -21,10 +24,11 @@ export type Product = {
   material: string;
   care: string;
   fit: string;
-  inventory: Record<Size, number>;
+  inventory: Record<ClothingSize, number> | null;
+  sizeOptions?: readonly Size[];
   images: string[];
   featured: boolean;
-  measurements: Record<Size, [number, number]>;
+  measurements: Record<ClothingSize, [number, number]> | null;
 };
 const entries: [
   string,
@@ -270,5 +274,28 @@ export const products: Product[] = entries.map(
     };
   },
 );
+products.push({
+  id: "21",
+  slug: "horizony-essential-wristband",
+  name: "HORIZONY Essential Wristband",
+  category: "accessories",
+  color: "Black",
+  hex: "#111111",
+  price: 100,
+  sku: "HZN-AC-021",
+  description: "Complete your everyday style with the HORIZONY Essential Wristband. A minimalist, lightweight accessory designed for comfort and modern streetwear fashion.",
+  material: "Silicone. Black with white HORIZONY branding.",
+  care: "Wipe gently with a soft damp cloth and allow to air dry.",
+  fit: "Single size option. Wrist circumference measurements have not been provided.",
+  inventory: null,
+  sizeOptions: ["One size"],
+  images: ["front", "back", "detail"].map(view => `/images/horizony-essential-wristband-${view}.webp`),
+  featured: false,
+  measurements: null,
+});
+export const productSizes = (product: Product): readonly Size[] => product.sizeOptions ?? sizes;
+// 99 is a cart quantity limit, not an assertion of physical inventory.
+export const quantityLimit = (product: Product, size: Size) => product.inventory === null
+  ? 99 : Math.min(99, product.inventory[size as ClothingSize] ?? 0);
 export const getProduct = (slug: string) =>
   products.find((p) => p.slug === slug);

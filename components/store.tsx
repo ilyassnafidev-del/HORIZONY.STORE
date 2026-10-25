@@ -11,7 +11,7 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import { X, Plus, Minus, ArrowRight } from "lucide-react";
-import { products, type Size } from "@/lib/catalog";
+import { products, quantityLimit, type Size } from "@/lib/catalog";
 import { money } from "@/lib/config";
 import { normalizeCart, cartSubtotal, type CartLine } from "@/lib/cart";
 type Store = {
@@ -20,7 +20,7 @@ type Store = {
   subtotal: number;
   open: boolean;
   setOpen: (v: boolean) => void;
-  add: (id: string, size: Size, quantity: number) => void;
+  add: (id: string, size: Size, quantity: number, openBag?: boolean) => void;
   update: (id: string, size: Size, quantity: number) => void;
   ready: boolean;
 };
@@ -143,11 +143,11 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         products,
       ),
     );
-  const add = (id: string, size: Size, quantity: number) => {
+  const add = (id: string, size: Size, quantity: number, openBag = true) => {
     setLines((current) =>
       normalizeCart([...current, { productId: id, size, quantity }], products),
     );
-    setOpen(true);
+    setOpen(openBag);
   };
   const close = useCallback(() => setOpen(false), []);
   return (
@@ -242,7 +242,7 @@ export function BagContents({
                       <span>{line.quantity}</span>
                       <button
                         disabled={
-                          line.quantity >= Math.min(99, p.inventory[line.size])
+                          line.quantity >= quantityLimit(p, line.size)
                         }
                         aria-label={`Increase ${p.name} size ${line.size} quantity`}
                         onClick={() =>

@@ -34,6 +34,8 @@ export default async function Page({
   const { slug } = await params;
   const p = getProduct(slug);
   if (!p) notFound();
+  const sameCategory = products.filter(x => x.category === p.category && x.id !== p.id);
+  const related = sameCategory.length ? sameCategory : products.filter(x => x.id !== p.id);
   const breadcrumb = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -67,6 +69,12 @@ export default async function Page({
         }}
       />
       <ProductDetail product={p} />
+      {p.category === "accessories" && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org", "@type": "Product", name: p.name,
+        description: p.description, image: p.images.map(image => `${siteConfig.origin}${image}`),
+        sku: p.sku, color: p.color, material: "Silicone", brand: { "@type": "Brand", name: "HORIZONY" },
+        offers: { "@type": "Offer", price: (p.price / 100).toFixed(2), priceCurrency: siteConfig.currency, url: `${siteConfig.origin}/products/${p.slug}/` },
+      }).replace(/</g, "\\u003c") }} />}
       <section className="section related">
         <div className="section-heading">
           <div>
@@ -75,8 +83,7 @@ export default async function Page({
           </div>
         </div>
         <div className="product-grid">
-          {products
-            .filter((x) => x.category === p.category && x.id !== p.id)
+          {related
             .slice(0, 4)
             .map((p, i) => (
               <ProductCard key={p.id} product={p} index={i} />

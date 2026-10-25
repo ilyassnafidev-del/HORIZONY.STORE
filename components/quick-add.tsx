@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import type { Product, Size } from "@/lib/catalog";
-import { sizes } from "@/lib/catalog";
+import { productSizes } from "@/lib/catalog";
 import { money } from "@/lib/config";
 import { Modal, useStore } from "./store";
 export function QuickAdd({ product: p }: { product: Product }) {
@@ -45,7 +45,7 @@ export function QuickAdd({ product: p }: { product: Product }) {
               <p className="note">{p.fit}</p>
               <span className="eyebrow">SELECT SIZE</span>
               <div className="size-options">
-                {sizes.map((s) => (
+                {productSizes(p).map((s) => (
                   <button
                     key={s}
                     aria-pressed={size === s}
@@ -79,7 +79,7 @@ export function QuickAdd({ product: p }: { product: Product }) {
                 href={`/products/${p.slug}`}
                 onClick={close}
               >
-                View details & size guide
+                {p.measurements ? "View details & size guide" : "View product details"}
               </Link>
             </div>
           </div>

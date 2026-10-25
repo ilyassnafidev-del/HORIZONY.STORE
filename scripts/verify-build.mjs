@@ -26,7 +26,7 @@ if (process.env.HORISONY_OUTPUT === 'export') {
   readManifest('build-manifest.json');
   const appPaths = readManifest('server/app-paths-manifest.json');
   for (const file of Object.values(appPaths)) requireFile(path.join(build, 'server', file));
-  const requiredRoutes = ['/', '/shop', '/about', '/cart', '/checkout', '/collections/t-shirts', '/collections/jackets',
+  const requiredRoutes = ['/', '/shop', '/about', '/cart', '/checkout', '/collections/t-shirts', '/collections/jackets', '/collections/accessories',
     ...['contact', 'shipping', 'returns', 'privacy', 'terms', 'refund-policy', 'privacy-policy', 'terms-of-service'].map(slug => '/' + slug),
     ...products.map(product => '/products/' + product.slug)];
   const htmlFiles = requiredRoutes.map(route => {

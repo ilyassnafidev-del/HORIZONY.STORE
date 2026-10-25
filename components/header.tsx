@@ -20,6 +20,7 @@ export function Header() {
     ["Shop", "/shop"],
     ["T-Shirts", "/collections/t-shirts"],
     ["Jackets", "/collections/jackets"],
+    ["Accessories", "/collections/accessories"],
     ["About", "/about"],
   ];
   return (

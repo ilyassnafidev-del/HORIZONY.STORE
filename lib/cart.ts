@@ -1,4 +1,5 @@
 import type { Product, Size } from "./catalog";
+import { productSizes, quantityLimit } from "./catalog.ts";
 export type CartLine = { productId: string; size: Size; quantity: number };
 export function normalizeCart(value: unknown, products: Product[]): CartLine[] {
   if (!Array.isArray(value)) return [];
@@ -8,13 +9,13 @@ export function normalizeCart(value: unknown, products: Product[]): CartLine[] {
     const p = products.find((p) => p.id === item.productId);
     if (
       !p ||
-      !["S", "L", "XL", "XXL"].includes(item.size) ||
+      !productSizes(p).includes(item.size) ||
       !Number.isInteger(item.quantity) ||
       item.quantity < 1
     )
       continue;
     const size = item.size as Size;
-    const limit = Math.min(99, p.inventory[size]);
+    const limit = quantityLimit(p, size);
     if (limit < 1) continue;
     const found = lines.find((l) => l.productId === p.id && l.size === size);
     if (found) found.quantity = Math.min(limit, found.quantity + item.quantity);

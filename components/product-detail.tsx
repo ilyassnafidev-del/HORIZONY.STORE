@@ -2,6 +2,7 @@
 import { useState, useCallback, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   Plus,
   Minus,
@@ -11,8 +12,8 @@ import {
   ChevronRight,
   Check,
 } from "lucide-react";
-import { sizes, type Size, type Product } from "@/lib/catalog";
-import { money } from "@/lib/config";
+import { sizes, productSizes, quantityLimit, categoryNames, type Size, type Product } from "@/lib/catalog";
+import { money, deliveryInformation } from "@/lib/config";
 import { useStore, Modal } from "./store";
 export function ProductDetail({ product: p }: { product: Product }) {
   const [view, setView] = useState(0);
@@ -23,6 +24,8 @@ export function ProductDetail({ product: p }: { product: Product }) {
   const [quantity, setQuantity] = useState(1);
   const [error, setError] = useState("");
   const { add } = useStore();
+  const router = useRouter();
+  const measurements = p.measurements;
   const touch = useRef<number | null>(null);
   const closeZoom = useCallback(() => setZoom(false), []);
   const closeGuide = useCallback(() => setGuide(false), []);
@@ -35,7 +38,7 @@ export function ProductDetail({ product: p }: { product: Product }) {
         <Link href="/shop">Shop</Link>
         <span>/</span>
         <Link href={`/collections/${p.category}`}>
-          {p.category === "t-shirts" ? "T-Shirts" : "Jackets"}
+          {categoryNames[p.category]}
         </Link>
         <span>/</span>
         <span>{p.name}</span>
@@ -154,12 +157,12 @@ export function ProductDetail({ product: p }: { product: Product }) {
           </div>
           <div className="size-heading">
             <span>SELECT SIZE</span>
-            <button className="text-link" onClick={() => setGuide(true)}>
+            {p.measurements && <button className="text-link" onClick={() => setGuide(true)}>
               Size guide
-            </button>
+            </button>}
           </div>
           <div className="size-options" role="group" aria-label="Choose a size">
-            {sizes.map((s) => (
+            {productSizes(p).map((s) => (
               <button
                 key={s}
                 aria-pressed={size === s}
@@ -187,7 +190,7 @@ export function ProductDetail({ product: p }: { product: Product }) {
               <span>{quantity}</span>
               <button
                 aria-label="Increase quantity"
-                disabled={quantity >= Math.min(99, p.inventory[size ?? "S"])}
+                disabled={quantity >= quantityLimit(p, size ?? productSizes(p)[0])}
                 onClick={() => setQuantity((q) => q + 1)}
               >
                 <Plus size={16} />
@@ -208,8 +211,13 @@ export function ProductDetail({ product: p }: { product: Product }) {
               ADD TO BAG <ArrowRight size={17} />
             </button>
           </div>
+          {p.category === "accessories" && <button className="button outline" onClick={() => {
+            if (!size) { setError("Choose your size before continuing to checkout."); return; }
+            add(p.id, size, quantity, false);
+            router.push("/checkout");
+          }}>BUY NOW <ArrowRight size={17} /></button>}
           <p className="product-caption">
-            {p.fit} · All four sizes available in the example catalog.
+            {p.fit}{p.category !== "accessories" && " · All four sizes available in the example catalog."}
           </p>
           <div className="product-accordions">
             <details open>
@@ -222,16 +230,15 @@ export function ProductDetail({ product: p }: { product: Product }) {
             <details>
               <summary>Care instructions</summary>
               <p>{p.care}</p>
-              <p>
+              {p.category !== "accessories" && <p>
                 Example guidance; confirm against the final garment care label
                 before sale.
-              </p>
+              </p>}
             </details>
             <details>
               <summary>Shipping & returns</summary>
               <p>
-                Delivery destinations, rates and return terms are being
-                configured. Checkout is a preview.
+                {p.category === "accessories" ? `${deliveryInformation.shipping} Return requests are accepted within 30 calendar days after delivery. Delivery destinations and rates are not yet configured; checkout remains a preview.` : "Delivery destinations, rates and return terms are being configured. Checkout is a preview."}
               </p>
               <Link className="text-link" href="/shipping">
                 Shipping information
@@ -242,9 +249,7 @@ export function ProductDetail({ product: p }: { product: Product }) {
             </details>
           </div>
           <p className="catalog-note">
-            Original concept imagery. Product specifications, prices, sizing and
-            inventory are initial example data, awaiting merchandise
-            verification.
+            {p.category === "accessories" ? "Original product concept imagery. Checkout is currently a preview; no payment is taken." : "Original concept imagery. Product specifications, prices, sizing and inventory are initial example data, awaiting merchandise verification."}
           </p>
         </div>
       </section>
@@ -271,7 +276,7 @@ export function ProductDetail({ product: p }: { product: Product }) {
           </div>
         </Modal>
       )}
-      {guide && (
+      {guide && measurements && (
         <Modal label="Size guide" onClose={closeGuide}>
           <span className="eyebrow">FIND YOUR FORM</span>
           <h2>Size guide.</h2>
@@ -291,8 +296,8 @@ export function ProductDetail({ product: p }: { product: Product }) {
               {sizes.map((s) => (
                 <tr key={s}>
                   <th>{s}</th>
-                  <td>{p.measurements[s][0]}</td>
-                  <td>{p.measurements[s][1]}</td>
+                  <td>{measurements[s][0]}</td>
+                  <td>{measurements[s][1]}</td>
                 </tr>
               ))}
             </tbody>

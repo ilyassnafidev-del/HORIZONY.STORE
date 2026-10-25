@@ -10,11 +10,11 @@ Source repository: https://github.com/ilyassnafidev-del/HORIZONY.STORE (branch `
 
 ## Edit the store
 
-- `lib/catalog.ts`: exactly 20 products, prices in integer cents, specifications, SKU, inventory, sizes, galleries and example measurements.
+- `lib/catalog.ts`: 21 products (20 original garments and the HORIZONY Essential Wristband), prices in integer cents, specifications, SKU, inventory, sizes, galleries and example measurements.
 - `lib/config.ts`: currency, locale, canonical origin, announcement, support and business information. Update currency and **all catalog prices** together when changing currency; this is not an exchange-rate conversion.
 - `lib/information.ts`: contact, shipping, returns, privacy and terms placeholders. Confirm these before commercial launch.
 - `app/globals.css`: responsive design system.
-- `public/images/`: 60 distinct AI-generated concept photographs; front/back/detail for each garment, each with 400px and 800px responsive variants. The original 24 source photos are preserved byte for byte; four prior generated views were recovered and 32 missing views were recreated from the existing garment references. Exact replacement prompts and provenance are in `docs/images-tees.json`, `docs/images-jackets.json` and `docs/images-recovered.json`. Recreated unseen rear details are inferred from each front reference.
+- `public/images/`: 63 distinct AI-generated concept photographs; three views for each garment and accessory, each with 400px and 800px responsive variants. The original 24 source photos are preserved byte for byte; four prior generated views were recovered and 32 missing views were recreated from the existing garment references. Wristband image prompts and provenance are in `docs/wristband-images.json`. Original garment replacement prompts and provenance are in `docs/images-tees.json`, `docs/images-jackets.json` and `docs/images-recovered.json`. Recreated unseen rear details are inferred from each front reference.
 - `public/fonts/`: locally hosted Manrope variable font and its SIL Open Font License.
 
 ## Checkout and payment integration

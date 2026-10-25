@@ -1,11 +1,11 @@
 "use client";
 import { useState, useCallback } from "react";
 import { SlidersHorizontal, X } from "lucide-react";
-import { products, sizes } from "@/lib/catalog";
+import { products, productSizes, quantityLimit, type Category, type Size } from "@/lib/catalog";
 import { ProductCard } from "./product-card";
 import { Modal } from "./store";
 import { money, siteConfig } from "@/lib/config";
-export function Shop({ category }: { category?: "t-shirts" | "jackets" }) {
+export function Shop({ category }: { category?: Category }) {
   const [query, setQuery] = useState("");
   const [cat, setCat] = useState(category ?? "all");
   const [color, setColor] = useState("all");
@@ -21,7 +21,7 @@ export function Shop({ category }: { category?: "t-shirts" | "jackets" }) {
       (p) =>
         (cat === "all" || p.category === cat) &&
         (color === "all" || p.color === color) &&
-        (size === "all" || p.inventory[size as keyof typeof p.inventory] > 0) &&
+        (size === "all" || (productSizes(p).includes(size as Size) && quantityLimit(p, size as Size) > 0)) &&
         (!min || p.price >= Number(min) * 100) &&
         (!max || p.price <= Number(max) * 100) &&
         `${p.name} ${p.color} ${p.material}`
@@ -61,6 +61,7 @@ export function Shop({ category }: { category?: "t-shirts" | "jackets" }) {
             <option value="all">All pieces</option>
             <option value="t-shirts">T-Shirts</option>
             <option value="jackets">Jackets</option>
+            <option value="accessories">Accessories</option>
           </select>
         </label>
       )}
@@ -77,7 +78,7 @@ export function Shop({ category }: { category?: "t-shirts" | "jackets" }) {
         Size
         <select value={size} onChange={(e) => setSize(e.target.value)}>
           <option value="all">All sizes</option>
-          {sizes.map((s) => (
+          {[...new Set(base.flatMap(p => [...productSizes(p)]))].map((s) => (
             <option key={s}>{s}</option>
           ))}
         </select>
@@ -130,14 +131,14 @@ export function Shop({ category }: { category?: "t-shirts" | "jackets" }) {
             ? "The everyday essential."
             : category === "jackets"
               ? "Layers with purpose."
-              : "A considered collection."}
+              : category === "accessories" ? "The finishing touch." : "A considered collection."}
         </h1>
         <p>
           {category === "t-shirts"
             ? "Ten perspectives on a familiar form. Refined essentials for everyday expression."
             : category === "jackets"
               ? "Ten outer layers. Texture, shape and a point of view."
-              : "Twenty pieces. Two collections. A new perspective on your everyday."}
+              : category === "accessories" ? "Considered accessories for everyday expression." : "Twenty-one pieces. Three collections. A new perspective on your everyday."}
         </p>
       </div>
       <div className="shop-toolbar">

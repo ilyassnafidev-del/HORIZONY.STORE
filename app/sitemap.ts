@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/shop",
     "/collections/t-shirts",
     "/collections/jackets",
+    "/collections/accessories",
     "/about",
     "/contact",
     "/shipping",

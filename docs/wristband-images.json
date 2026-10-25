@@ -1,0 +1,21 @@
+{
+  "product": "HORIZONY Essential Wristband",
+  "date": "2026-10-25",
+  "method": "Built-in image_gen tool; original generated product concept photography, not third-party photographs or evidence of manufactured stock.",
+  "reference": "The generated front image was the product reference for the rear and detail views.",
+  "processing": "Exported to 1200x1500, 800x1000 and 400x500 WebP at quality 90 using Sharp. Existing product images are unchanged.",
+  "assets": [
+    {
+      "path": "public/images/horizony-essential-wristband-front.webp",
+      "prompt": "Create one original photorealistic premium ecommerce studio product photograph, portrait 4:5 composition. A single continuous black matte silicone wristband, simple flat band about 12mm wide, elegant crisp small white uppercase branding spelled exactly HORIZONY centered along the visible outside face, no other markings. Black silicone with realistic soft touch subtle texture, clean molded edges, no buckle or metal. Hero view: bracelet resting horizontally in a natural oval, camera three-quarter front slightly above, front outside band and open interior clearly visible, full object contained with generous breathing room, occupying about 65% image width. Warm very light stone grey seamless studio backdrop, soft diffuse editorial lighting, subtle grounded shadow. Minimal luxury fashion accessories photography matching a restrained black/cream fashion store. No hands, people, packaging, props, captions, price, watermark, reviews, collage or multiple panels. One bracelet only. Preserve exact readable HORIZONY spelling."
+    },
+    {
+      "path": "public/images/horizony-essential-wristband-back.webp",
+      "prompt": "Use the supplied photo as the exact product reference. Create a separate original realistic studio product photograph of THE SAME single black matte silicone HORIZONY wristband with identical width, thickness, molding and white HORIZONY text. Different angle: camera high rear three-quarter view, showing the plain unprinted rear of the band in the foreground and the open inside; branded front face is on the far outside and mostly hidden naturally. Resting as an oval on same warm light stone grey seamless background, diffuse studio lighting, subtle grounded shadow. Portrait 4:5, whole bracelet in frame, similar scale to reference with breathing room. One product only, no collage, props, hands, extra labels or watermark. No new branding, hardware, shape changes or unrelated elements. Preserve the white HORIZONY branding only on the same original outward front location, not repeated on the rear or inside."
+    },
+    {
+      "path": "public/images/horizony-essential-wristband-detail.webp",
+      "prompt": "Use supplied image as exact product reference. Create a separate original photorealistic close detail studio photograph of the SAME black matte silicone wristband. Show the elegant crisp white text spelled exactly HORIZONY on the curved outer front band, with realistic silicone surface, soft edge and a partial glimpse of the open inner loop. Macro three-quarter side/front angle, considerably closer composition than reference, but all the HORIZONY lettering fully visible and readable. Same warm light stone grey background, diffuse premium fashion studio lighting and restrained natural shadows. Portrait 4:5. One continuous simple silicone band, no hardware, hands, people, packaging, extra text, collage, watermark. Keep original design, material and branding identical."
+    }
+  ]
+}
