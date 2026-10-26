@@ -5,7 +5,7 @@ import english from "i18n-iso-countries/langs/en.json" with { type: "json" };
 import metadata from "./address-metadata.json" with { type: "json" };
 countries.registerLocale(english);
 
-export const defaultShippingCountries = "AL,AD,AT,BY,BE,BA,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IS,IE,IT,LV,LI,LT,LU,MT,MD,MC,ME,NL,MK,NO,PL,PT,RO,RU,SM,RS,SK,SI,ES,SE,CH,UA,GB,VA,US,CA,AU".split(",");
+export const defaultShippingCountries = "AL,AD,AM,AT,AZ,BY,BE,BA,BG,HR,CY,CZ,DK,EE,FI,FR,GE,DE,GR,HU,IS,IE,IT,KZ,XK,LV,LI,LT,LU,MT,MD,MC,ME,NL,MK,NO,PL,PT,RO,RU,SM,RS,SK,SI,ES,SE,CH,TR,UA,GB,VA,US,CA,AU".split(",");
 export function addressFormat(code: string) {
   const data = (metadata as Record<string, {require:string;fmt:string;state:string;zip:string|null}>)[code];
   return { region: Boolean(data?.fmt.includes("%S")), postal: Boolean(data?.fmt.includes("%Z")),

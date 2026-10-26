@@ -1,6 +1,6 @@
 import { query } from "./db.ts";
 import { ApiError } from "./security.ts";
-const statuses=["UNPAID","PENDING","PAID","CANCELED","REFUNDED","PARTIALLY_REFUNDED"];
+const statuses=["UNPAID","PENDING","FAILED","PAID","CANCELED","REFUNDED","PARTIALLY_REFUNDED"];
 export async function adminOrders(url:URL,exporting=false){
  const search=(url.searchParams.get("q")||"").trim().slice(0,100);const status=(url.searchParams.get("status")||"").toUpperCase();
  const sort=({date:"created_at DESC",oldest:"created_at ASC",amount:"total DESC",status:"payment_status ASC,created_at DESC"} as Record<string,string>)[url.searchParams.get("sort")||"date"]||"created_at DESC";

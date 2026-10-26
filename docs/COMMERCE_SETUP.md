@@ -153,3 +153,13 @@ No admin plaintext password or general-purpose session secret is committed. Sess
 - Address data: https://github.com/google/libaddressinput — Apache 2.0; license in `docs/ADDRESS_DATA_LICENSE.txt`.
 
 Optional connection limit: DATABASE_POOL_MAX defaults to 8 (range 1–20). Set it to the limit appropriate for your database provider. Local socket-bridge QA uses 1; production PostgreSQL supports concurrent connections.
+
+## Existing Supabase project
+
+Reuse the existing Supabase database: set the private Hostinger DATABASE_URL to its PostgreSQL connection string (not the Supabase HTTPS project URL or anon key). For an IPv4 Hostinger runtime, use Supabase Connect → Session pooler; preserve TLS verification and provide DATABASE_CA_CERT if required. No Supabase browser SDK or new database is needed.
+
+Run npm run db:migrate against this database after this update; it reuses store_orders and the existing related tables and extends the existing status constraint for FAILED. New checkout orders start PENDING. Verified failed asynchronous payments become FAILED; verified expired sessions become CANCELED. The cancel redirect alone never changes a payment status. Existing orders are preserved.
+
+If the checkout button stays disabled, verify DATABASE_URL connectivity/TLS and that the store tables exist, STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, all five STRIPE_PRICE_* variables, CHECKOUT_ENABLED=true, and (only after live verification) STRIPE_LIVE_PAYMENTS_ENABLED=true. Run npm run commerce:check privately; never send secret values in chat. Country options remain visible during a database outage, but payment stays blocked until saving orders is possible.
+
+Supabase connection reference: https://supabase.com/docs/guides/database/connecting-to-postgres

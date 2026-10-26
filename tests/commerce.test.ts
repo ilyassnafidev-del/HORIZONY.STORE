@@ -7,7 +7,7 @@ import path from 'node:path';
 import Stripe from 'stripe';
 import { PGlite } from '@electric-sql/pglite';
 import { addressFormat, countryOptions, shippingSchema, strongPassword, fulfillmentSchema } from '../lib/commerce/input.ts';
-import { paymentLinks, priceAmounts, checkoutReady, publicCheckoutConfig } from '../lib/commerce/settings.ts';
+import { paymentLinks, priceAmounts, checkoutReady, publicCheckoutConfig, shippingCountries } from '../lib/commerce/settings.ts';
 import { snapshotItems, expectedStripeLines, validPaidSession } from '../lib/commerce/order-model.ts';
 import { createOrder, customerOrder, recordVerifiedPayment, updateFulfillment } from '../lib/commerce/orders.ts';
 import { hashPassword, checkPassword, csvCell } from '../lib/commerce/crypto.ts';
@@ -41,9 +41,9 @@ test('country/address rules adapt without requiring US states for every country'
  assert.equal(shippingSchema.safeParse({...address,cardNumber:'not-accepted'}).success,false);
 });
 test('checkout remains disabled without private configuration and initial supported rates are free',async()=>{
- const enabled=process.env.CHECKOUT_ENABLED;const db=process.env.DATABASE_URL;
+ const enabled=process.env.CHECKOUT_ENABLED;const db=process.env.DATABASE_URL;const destinations=process.env.SHIPPING_COUNTRIES;
  delete process.env.CHECKOUT_ENABLED;delete process.env.DATABASE_URL;
- try{assert.equal(checkoutReady(),false);const config=await publicCheckoutConfig();assert.equal(config.available,false);for(const code of ['US','CA','AU','GB','FR','DE'])assert.ok(config.countries.some(c=>c.code===code&&c.shippingCents===0));assert.ok(!config.countries.some(c=>c.code==='JP'));}finally{if(enabled!==undefined)process.env.CHECKOUT_ENABLED=enabled;if(db!==undefined)process.env.DATABASE_URL=db;}
+ try{assert.equal(checkoutReady(),false);const config=await publicCheckoutConfig();assert.equal(config.available,false);for(const code of ['US','CA','AU','GB','FR','DE'])assert.ok(config.countries.some(c=>c.code===code&&c.shippingCents===0));assert.ok(!config.countries.some(c=>c.code==='JP'));process.env.SHIPPING_COUNTRIES='US,JP,BR';assert.deepEqual(shippingCountries().map(c=>c.code),['US']);}finally{if(destinations===undefined)delete process.env.SHIPPING_COUNTRIES;else process.env.SHIPPING_COUNTRIES=destinations;if(enabled!==undefined)process.env.CHECKOUT_ENABLED=enabled;if(db!==undefined)process.env.DATABASE_URL=db;}
 });
 test('password hashing is salted, weak passwords fail strength checks, and CSV exports resist formulas',async()=>{
  const first=await hashPassword('Fixture-Only-Phrase-73!');const second=await hashPassword('Fixture-Only-Phrase-73!');
@@ -83,7 +83,7 @@ test('real PostgreSQL order creation, isolation, payment idempotency, fulfillmen
   const customer=randomUUID();const requestId=randomUUID();
   const input={requestId,shipping:address,items:[{productId:'21',size:'One size',quantity:1},{productId:'1',size:'S',quantity:1}]};
   const order=await createOrder(customer,input,runQuery,destinations);
-  assert.equal(order.test_mode,!process.env.STRIPE_SECRET_KEY?.includes('_live_'));assert.equal(order.payment_status,'UNPAID');assert.equal(order.total,1595);assert.equal(order.shipping_cents,0);
+  assert.equal(order.test_mode,!process.env.STRIPE_SECRET_KEY?.includes('_live_'));assert.equal(order.payment_status,'PENDING');await db.query("UPDATE store_orders SET payment_status='FAILED' WHERE id=$1",[order.id]);await db.query("UPDATE store_orders SET payment_status='CANCELED' WHERE id=$1",[order.id]);await db.query("UPDATE store_orders SET payment_status='PENDING' WHERE id=$1",[order.id]);assert.equal(order.total,1595);assert.equal(order.shipping_cents,0);
   assert.equal((await createOrder(customer,input,runQuery,destinations)).id,order.id);
   await assert.rejects(()=>createOrder(customer,{...input,shipping:{...address,city:'Changed'}},runQuery,destinations));
   await assert.rejects(()=>customerOrder(order.id,randomUUID(),runQuery));

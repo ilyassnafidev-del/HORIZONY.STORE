@@ -13,12 +13,14 @@ CREATE TABLE IF NOT EXISTS store_orders (
  shipping_cents integer NOT NULL CHECK(shipping_cents>=0), total integer NOT NULL CHECK(total>0),
  refund_cents integer NOT NULL DEFAULT 0 CHECK(refund_cents>=0),
  test_mode boolean NOT NULL DEFAULT true,
- payment_status text NOT NULL DEFAULT 'UNPAID' CHECK(payment_status IN ('UNPAID','PENDING','PAID','CANCELED','PARTIALLY_REFUNDED','REFUNDED')),
+ payment_status text NOT NULL DEFAULT 'UNPAID' CHECK(payment_status IN ('UNPAID','PENDING','FAILED','PAID','CANCELED','PARTIALLY_REFUNDED','REFUNDED')),
  fulfillment text NOT NULL DEFAULT 'UNFULFILLED' CHECK(fulfillment IN ('UNFULFILLED','PROCESSING','SHIPPED','DELIVERED')),
  stripe_payment_intent text UNIQUE, created_at timestamptz NOT NULL DEFAULT now(), paid_at timestamptz,
  UNIQUE(customer_id,request_key)
 );
 ALTER TABLE store_orders ADD COLUMN IF NOT EXISTS test_mode boolean NOT NULL DEFAULT true;
+ALTER TABLE store_orders DROP CONSTRAINT IF EXISTS store_orders_payment_status_check;
+ALTER TABLE store_orders ADD CONSTRAINT store_orders_payment_status_check CHECK(payment_status IN ('UNPAID','PENDING','FAILED','PAID','CANCELED','PARTIALLY_REFUNDED','REFUNDED'));
 CREATE INDEX IF NOT EXISTS store_orders_customer ON store_orders(customer_id,created_at DESC);
 CREATE INDEX IF NOT EXISTS store_orders_status ON store_orders(payment_status,created_at DESC);
 CREATE TABLE IF NOT EXISTS store_checkout_attempts (

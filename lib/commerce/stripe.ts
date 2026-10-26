@@ -32,6 +32,7 @@ export async function hostedCheckout(order:Order){
     success_url:`${origin()}/order-status/${order.id}/?return=success`,cancel_url:`${origin()}/order-status/${order.id}/?return=canceled`,
   },{idempotencyKey:`checkout-${attempt.id}`});
   if(!session.url||new URL(session.url).protocol!=="https:"||new URL(session.url).hostname!=="checkout.stripe.com")throw new ApiError(503,"Stripe checkout could not be opened. Your order remains unpaid.");
+  await query("UPDATE store_orders SET payment_status='PENDING' WHERE id=$1 AND paid_at IS NULL",[order.id]);
   await query("UPDATE store_checkout_attempts SET session_id=$2,stripe_url=$3,status='OPEN',expires_at=to_timestamp($4) WHERE id=$1",[attempt.id,session.id,session.url,session.expires_at]);
   return {url:session.url,orderId:order.id};
 }
@@ -45,9 +46,12 @@ export async function verifySession(sessionId:string,eventId:string,eventType:st
     const order=(await sql.query<Order>("SELECT * FROM store_orders WHERE id=$1 FOR UPDATE",[attempt.order_id])).rows[0];if(!order)return false;
     if(session.livemode===order.test_mode)throw new ApiError(400,"Order payment mode mismatch.");
     if(session.payment_status!=="paid"){
+      const latest=(await sql.query("SELECT session_id FROM store_checkout_attempts WHERE order_id=$1 ORDER BY created_at DESC LIMIT 1",[order.id])).rows[0];
+      if(latest?.session_id!==session.id)return false;
       if(!["PAID","REFUNDED","PARTIALLY_REFUNDED"].includes(order.payment_status)){
-        const status=session.status==="expired"||eventType==="checkout.session.async_payment_failed"?"UNPAID":session.status==="complete"?"PENDING":"UNPAID";
+        const status=(eventType==="checkout.session.async_payment_failed"||order.payment_status==="FAILED")?"FAILED":session.status==="expired"?"CANCELED":"PENDING";
         await sql.query("UPDATE store_orders SET payment_status=$2 WHERE id=$1",[order.id,status]);
+        if(eventType==="checkout.session.async_payment_failed")await sql.query("UPDATE store_checkout_attempts SET status='FAILED' WHERE session_id=$1",[session.id]);
         if(session.status==="expired")await sql.query("UPDATE store_checkout_attempts SET status='EXPIRED' WHERE session_id=$1",[session.id]);
       }
       return false;
