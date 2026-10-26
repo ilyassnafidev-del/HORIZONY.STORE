@@ -44,3 +44,26 @@ CREATE TABLE IF NOT EXISTS store_shipping_rates (
  country char(2) PRIMARY KEY, cents integer NOT NULL CHECK(cents>=0 AND cents<=100000),
  enabled boolean NOT NULL DEFAULT true, updated_at timestamptz NOT NULL DEFAULT now()
 );
+
+-- Customer/order data is accessed only by the private server connection.
+ALTER TABLE store_admins ENABLE ROW LEVEL SECURITY;
+ALTER TABLE store_sessions ENABLE ROW LEVEL SECURITY;
+ALTER TABLE store_orders ENABLE ROW LEVEL SECURITY;
+ALTER TABLE store_checkout_attempts ENABLE ROW LEVEL SECURITY;
+ALTER TABLE store_payment_events ENABLE ROW LEVEL SECURITY;
+ALTER TABLE store_order_notes ENABLE ROW LEVEL SECURITY;
+ALTER TABLE store_rate_limits ENABLE ROW LEVEL SECURITY;
+ALTER TABLE store_shipping_rates ENABLE ROW LEVEL SECURITY;
+DO $store_security$
+DECLARE store_table text; browser_role text;
+BEGIN
+ FOREACH store_table IN ARRAY ARRAY['store_admins','store_sessions','store_orders','store_checkout_attempts','store_payment_events','store_order_notes','store_rate_limits','store_shipping_rates'] LOOP
+  EXECUTE format('REVOKE ALL ON TABLE public.%I FROM PUBLIC',store_table);
+  FOREACH browser_role IN ARRAY ARRAY['anon','authenticated'] LOOP
+   IF EXISTS (SELECT 1 FROM pg_roles WHERE rolname=browser_role) THEN
+    EXECUTE format('REVOKE ALL ON TABLE public.%I FROM %I',store_table,browser_role);
+   END IF;
+  END LOOP;
+ END LOOP;
+END
+$store_security$;
