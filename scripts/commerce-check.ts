@@ -1,3 +1,4 @@
+import { TLSSocket } from "node:tls";
 import { database, query } from "../lib/commerce/db.ts";
 import { priceAmounts, priceIds, origin, checkoutReady } from "../lib/commerce/settings.ts";
 import { stripeClient } from "../lib/commerce/stripe.ts";
@@ -25,8 +26,8 @@ try{
    if(!["postgres:","postgresql:"].includes(url.protocol))throw Error("Invalid database URL");
    await query("SELECT 1");connected=report(true,"PostgreSQL connection and certificate verification");
    const local=["localhost","127.0.0.1","::1"].includes(url.hostname);
-   const ssl=(await query("SELECT ssl FROM pg_stat_ssl WHERE pid=pg_backend_pid()")).rows[0];
-   report(local||ssl?.ssl===true,"Database transport uses TLS");
+   const client=await database().connect();
+   try{const stream=(client as unknown as {connection:{stream:unknown}}).connection.stream;report(local||(stream instanceof TLSSocket&&stream.encrypted&&stream.authorized),"Client-to-database/pooler transport uses verified TLS");}finally{client.release();}
   }catch(error){report(false,category(error));}
   if(connected){
    try{const admins=await query("SELECT count(*)::int AS count FROM store_admins WHERE must_change_password=false");report(admins.rows[0]?.count>0,"Admin setup and mandatory password change completed");}catch(error){report(false,category(error));}
