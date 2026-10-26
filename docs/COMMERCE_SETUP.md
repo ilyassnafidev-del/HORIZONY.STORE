@@ -163,3 +163,11 @@ Run npm run db:migrate against this database after this update; it reuses store_
 If the checkout button stays disabled, verify DATABASE_URL connectivity/TLS and that the store tables exist, STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, all five STRIPE_PRICE_* variables, CHECKOUT_ENABLED=true, and (only after live verification) STRIPE_LIVE_PAYMENTS_ENABLED=true. Run npm run commerce:check privately; never send secret values in chat. Country options remain visible during a database outage, but payment stays blocked until saving orders is possible.
 
 Supabase connection reference: https://supabase.com/docs/guides/database/connecting-to-postgres
+
+## Diagnose a disabled production checkout safely
+
+Run `npm run commerce:check` privately with the same environment values as Hostinger. It prints PASS/FAIL per variable name, activation flag, PostgreSQL/TLS check, existing store table, status migration, live Stripe account, five Price IDs and webhook registration. It never prints secret values, customer rows, provider objects or raw exceptions, never writes database records, and never enables checkout. Restricted Stripe keys need read permissions for the account, prices and webhook endpoint checks. Failure of a read permission check does not prove the service is unconfigured.
+
+A public `POST /api/stripe/webhook/` without a signature returns **503 / Webhook is not configured** only when `STRIPE_SECRET_KEY` or `STRIPE_WEBHOOK_SECRET` is absent in the running Node application. When both exist it returns 400 for the missing signature. A 400 is only a presence check; it does not prove the key or signing secret is correct. Set the values privately in Hostinger, apply changes and restart/redeploy; a GitHub push alone cannot supply private credentials.
+
+Keep both activation flags false while resolving failed checks. Complete the existing Stripe test checklist and confirm the live webhook signing secret and successful delivery before changing the flags to true. Preserve the existing Supabase project and use `npm run db:migrate` only against that project's verified PostgreSQL connection. A public configuration response cannot distinguish missing flags, missing credentials, bad TLS, missing tables, or disabled destinations; do not infer a database outage from `available:false` alone.
