@@ -40,6 +40,8 @@ npm run admin:setup
 
 The password prompt is hidden. No password is written to source code or printed. The database receives only a salted scrypt hash. Choose a unique setup password of at least 14 characters with uppercase, lowercase, a number and a symbol.
 
+The setup utility enforces the production password policy and asks for hidden confirmation. For an owner choosing their final password privately in a trusted terminal, use `npm run admin:setup -- --reset --final-password --verify-production` to update an existing account and test the real HTTPS login and protected orders API. This final-password mode completes setup immediately after policy validation and confirmation; the default setup mode still requires a first-login password change. Verification logs only pass/fail and HTTP status, never credentials or customer records, and signs out its own verification session afterward.
+
 - Login: `https://horizony.store/admin/login/`
 - Dashboard: `https://horizony.store/admin/`
 - Username: `Ilyass`
