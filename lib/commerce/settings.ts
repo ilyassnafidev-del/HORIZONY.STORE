@@ -1,6 +1,7 @@
 import { countryOptions, defaultShippingCountries } from "./input.ts";
 import { siteConfig } from "../config.ts";
 import { query } from "./db.ts";
+import { paymentServicesReady } from "./readiness.ts";
 
 export const paymentLinks: Record<number,string>={100:"https://buy.stripe.com/cNi3cv2kd2db3lq25l4gg04",1495:"https://buy.stripe.com/eVq6oHaQJ3hf1di39p4gg00",2995:"https://buy.stripe.com/cNifZh5wp4lj9JO39p4gg01",4495:"https://buy.stripe.com/14AeVd3ohaJH9JOdO34gg02",5995:"https://buy.stripe.com/dRmbJ10c54lj09e7pF4gg03"};
 export const priceAmounts=[100,1495,2995,4495,5995] as const;
@@ -13,4 +14,5 @@ export function checkoutReady() {
     &&(!key.includes("_live_")||process.env.STRIPE_LIVE_PAYMENTS_ENABLED==="true")&&Object.values(priceIds()).every(id=>/^price_/.test(id))&&shippingCountries().length>0;
 }
 export async function shippingOptions(){const base=new Set(shippingCountries().map(c=>c.code));const overrides=process.env.DATABASE_URL?(await query("SELECT country,cents,enabled FROM store_shipping_rates")).rows:[];return countryOptions.map(c=>{const saved=overrides.find(row=>row.country===c.code);return {...c,shippingCents:saved?.cents??0,enabled:defaultShippingCountries.includes(c.code)&&(saved?.enabled??base.has(c.code))};});}
-export async function publicCheckoutConfig(){const countries=(await shippingOptions()).filter(c=>c.enabled);return {available:checkoutReady()&&countries.length>0,testMode:Boolean(process.env.STRIPE_SECRET_KEY?.includes("_test_")),countries};}
+export function checkoutServicesReady(){return paymentServicesReady(origin(),priceIds());}
+export async function publicCheckoutConfig(){const countries=(await shippingOptions()).filter(c=>c.enabled);const configurationVerified=await checkoutServicesReady();return {available:checkoutReady()&&configurationVerified&&countries.length>0,configurationVerified,testMode:Boolean(process.env.STRIPE_SECRET_KEY?.includes("_test_")),countries};}

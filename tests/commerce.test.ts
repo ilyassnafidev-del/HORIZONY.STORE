@@ -5,6 +5,7 @@ import { mkdtemp, readFile, writeFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import Stripe from 'stripe';
+import { validConfiguredPrice, validConfiguredWebhook, requiredPaymentEvents } from '../lib/commerce/readiness.ts';
 import { PGlite } from '@electric-sql/pglite';
 import { addressFormat, countryOptions, shippingSchema, strongPassword, fulfillmentSchema } from '../lib/commerce/input.ts';
 import { paymentLinks, priceAmounts, checkoutReady, publicCheckoutConfig, shippingCountries } from '../lib/commerce/settings.ts';
@@ -16,6 +17,17 @@ import { settlePaidOrder } from '../lib/cart.ts';
 import { query, type Sql, transaction } from '../lib/commerce/db.ts';
 const ids=Object.fromEntries(priceAmounts.map(amount=>[amount,`price_fixture_${amount}`]));
 const address={firstName:'Test',lastName:'Customer',email:'',phone:'+12025550123',country:'US',region:'NY',city:'New York',street:'1 Example Street',unit:'',postal:'10001'};
+
+test('production readiness rejects mismatched live prices and webhook destinations',()=>{
+ const price={active:true,currency:'usd',unit_amount:100,type:'one_time' as const,livemode:true};
+ assert.equal(validConfiguredPrice(price,100,true),true);
+ for(const wrong of [{...price,currency:'eur'},{...price,unit_amount:1495},{...price,livemode:false},{...price,active:false}])assert.equal(validConfiguredPrice(wrong,100,true),false);
+ const endpoint={url:'https://horizony.store/api/stripe/webhook/',status:'enabled' as const,livemode:true,enabled_events:requiredPaymentEvents as Stripe.WebhookEndpoint['enabled_events']};
+ assert.equal(validConfiguredWebhook(endpoint,'https://horizony.store',true),true);
+ assert.equal(validConfiguredWebhook({...endpoint,url:'https://unrelated.example/api/stripe/webhook/'},'https://horizony.store',true),false);
+ assert.equal(validConfiguredWebhook({...endpoint,livemode:false},'https://horizony.store',true),false);
+ assert.equal(validConfiguredWebhook({...endpoint,enabled_events:['checkout.session.completed']},'https://horizony.store',true),false);
+});
 
 test('all five exact supplied Stripe links are preserved and catalog prices are server-derived',()=>{
  assert.deepEqual(Object.keys(paymentLinks).map(Number).sort((a,b)=>a-b),[100,1495,2995,4495,5995]);

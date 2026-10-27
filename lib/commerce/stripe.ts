@@ -2,13 +2,13 @@ import Stripe from "stripe";
 import { randomUUID } from "node:crypto";
 import { query, transaction } from "./db.ts";
 import { ApiError } from "./security.ts";
-import { checkoutReady, origin } from "./settings.ts";
+import { checkoutReady, checkoutServicesReady, origin } from "./settings.ts";
 import { expectedStripeLines, validPaidSession, type Order } from "./order-model.ts";
 import { recordVerifiedPayment } from "./orders.ts";
 
 export function stripeClient(){if(!process.env.STRIPE_SECRET_KEY)throw new ApiError(503,"Payments are not configured.");return new Stripe(process.env.STRIPE_SECRET_KEY,{maxNetworkRetries:2,timeout:15000});}
 export async function hostedCheckout(order:Order){
-  if(!checkoutReady())throw new ApiError(503,"Online checkout is currently unavailable. Your unpaid order is saved.");
+  if(!checkoutReady()||!await checkoutServicesReady())throw new ApiError(503,"Online checkout is currently unavailable. Your unpaid order is saved.");
   const stripe=stripeClient();
   for(const item of expectedStripeLines(order.items)){
     const price=await stripe.prices.retrieve(item.price);const amount=order.items.find(line=>line.priceId===item.price)!.unitCents;
