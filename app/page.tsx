@@ -29,7 +29,7 @@ export default function Home() {
             EXPLORE THE COLLECTION <ArrowUpRight size={18} />
           </Link>
           <Link className="hero-secondary text-link" href="/about">
-            DISCOVER HORISONY <ArrowRight size={16} />
+            DISCOVER HORIZONY <ArrowRight size={16} />
           </Link>
         </div>
         <div className="hero-visual">
@@ -38,7 +38,7 @@ export default function Home() {
           <Image
             priority
             src="/images/horizon-bomber-jacket-front.webp"
-            alt="HORISONY Horizon Bomber Jacket, matte black studio packshot"
+            alt="HORIZONY Horizon Bomber Jacket, matte black studio packshot"
             width={1200}
             height={1500}
             sizes="(max-width:700px) 100vw,55vw"
@@ -68,7 +68,7 @@ export default function Home() {
         <span>CONSIDERED DESIGN</span>
         <span>MODERN SILHOUETTES</span>
         <span>EVERYDAY EXPRESSION</span>
-        <span>HORISONY / COLLECTION 01</span>
+        <span>HORIZONY / COLLECTION 01</span>
       </div>
       <section className="section categories">
         <div className="section-heading">
@@ -153,7 +153,7 @@ export default function Home() {
           <span>ATLAS UTILITY / A STUDY IN DETAIL</span>
         </div>
         <div className="editorial-copy">
-          <span className="eyebrow">03 / THE HORISONY PERSPECTIVE</span>
+          <span className="eyebrow">03 / THE HORIZONY PERSPECTIVE</span>
           <h2>
             LESS NOISE.
             <br />
@@ -172,7 +172,7 @@ export default function Home() {
             Just something that feels like you.
           </p>
           <Link className="button light" href="/about">
-            DISCOVER HORISONY <ArrowUpRight size={18} />
+            DISCOVER HORIZONY <ArrowUpRight size={18} />
           </Link>
         </div>
       </section>

@@ -37,8 +37,8 @@ export function Header() {
         >
           <Menu size={22} />
         </button>
-        <Link href="/" className="wordmark" aria-label="HORISONY home">
-          HORISONY
+        <Link href="/" className="wordmark" aria-label="HORIZONY home">
+          HORIZONY
           <span className="logo-dot" />
         </Link>
         <nav className="desktop-nav" aria-label="Main navigation">
@@ -73,7 +73,7 @@ export function Header() {
       </header>
       {menu && (
         <Modal label="Navigation" onClose={closeMenu} side>
-          <span className="eyebrow">HORISONY / COLLECTION 01</span>
+          <span className="eyebrow">HORIZONY / COLLECTION 01</span>
           <nav className="mobile-nav" aria-label="Mobile navigation">
             {links.map(([name, href]) => (
               <Link href={href} key={href} onClick={closeMenu}>

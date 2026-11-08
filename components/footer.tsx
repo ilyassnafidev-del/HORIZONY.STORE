@@ -7,7 +7,7 @@ export function Footer() {
       <div className="footer-top">
         <div>
           <Link href="/" className="wordmark">
-            HORISONY
+            HORIZONY
             <span className="logo-dot" />
           </Link>
           <p>
@@ -27,7 +27,7 @@ export function Footer() {
         </div>
         <div>
           <span className="eyebrow">THE STUDIO</span>
-          <Link href="/about">About HORISONY</Link>
+          <Link href="/about">About HORIZONY</Link>
           <Link href="/contact">Contact</Link>
           <Link href="/orders">Your orders</Link>
           <SupportContact />
@@ -41,7 +41,7 @@ export function Footer() {
         </div>
       </div>
       <div className="footer-bottom">
-        <span>© {new Date().getFullYear()} HORISONY</span>
+        <span>© {new Date().getFullYear()} HORIZONY</span>
         <span>Collection 01 · A considered beginning</span>
         <span>Clothing · Accessories · Everyday expression</span>
       </div>

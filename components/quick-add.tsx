@@ -37,7 +37,7 @@ export function QuickAdd({ product: p }: { product: Product }) {
               sizes="(max-width:600px) 85vw,300px"
             />
             <div>
-              <span className="eyebrow">HORISONY / COLLECTION 01</span>
+              <span className="eyebrow">HORIZONY / COLLECTION 01</span>
               <h2>{p.name}</h2>
               <p>
                 {money(p.price)} · {p.color}

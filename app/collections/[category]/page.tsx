@@ -15,7 +15,7 @@ export async function generateMetadata({
       category === "t-shirts"
         ? "T-Shirts — Refined essentials"
         : category === "accessories" ? "Accessories — The finishing touch" : "Jackets — Layers with purpose",
-    description: category === "accessories" ? "Discover HORIZONY accessories, including the Essential Wristband in black silicone with white branding." : `Discover the HORISONY ${category} collection. Ten original pieces with considered shapes and details.`,
+    description: category === "accessories" ? "Discover HORIZONY accessories, including the Essential Wristband in black silicone with white branding." : `Discover the HORIZONY ${category} collection. Ten original pieces with considered shapes and details.`,
     alternates: { canonical: `/collections/${category}/` },
   };
 }

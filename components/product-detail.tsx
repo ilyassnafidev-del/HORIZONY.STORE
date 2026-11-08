@@ -123,7 +123,7 @@ export function ProductDetail({ product: p }: { product: Product }) {
           </div>
         </div>
         <div className="product-info">
-          <span className="eyebrow">HORISONY / COLLECTION 01</span>
+          <span className="eyebrow">HORIZONY / COLLECTION 01</span>
           <h1>{p.name}</h1>
           <p className="product-price">{money(p.price)}</p>
           <p className="product-description">{p.description}</p>

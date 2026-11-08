@@ -15,7 +15,7 @@ export function ProductCard({
       <div className="card-image">
         <Link href={`/products/${p.slug}`}>
           <span className="card-index">
-            {String(index + 1).padStart(2, "0")} / HORISONY
+            {String(index + 1).padStart(2, "0")} / HORIZONY
           </span>
           <Image
             src={p.images[0]}

@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 export const metadata = {
   title: "Our perspective",
   description:
-    "The HORISONY perspective: considered design, modern silhouettes and everyday expression.",
+    "The HORIZONY perspective: considered design, modern silhouettes and everyday expression.",
   alternates: { canonical: "/about/" },
 };
 export default function Page() {
@@ -21,7 +21,7 @@ export default function Page() {
           <span>FORM. TEXTURE. EVERYDAY.</span>
           <div>
             <p>
-              HORISONY begins with a simple idea: everyday clothing can have a
+              HORIZONY begins with a simple idea: everyday clothing can have a
               point of view.
             </p>
             <p>

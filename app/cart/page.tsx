@@ -8,7 +8,7 @@ export const metadata = {
 export default function Page() {
   return (
     <section className="section cart-page">
-      <span className="eyebrow">YOUR SELECTION / HORISONY</span>
+      <span className="eyebrow">YOUR SELECTION / HORIZONY</span>
       <h1>The bag.</h1>
       <BagContents />
       <Link className="text-link" href="/shop">

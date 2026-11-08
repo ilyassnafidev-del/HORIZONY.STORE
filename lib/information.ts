@@ -93,7 +93,7 @@ export const information: Record<
     sections: [
       {
         title: "Catalog status",
-        text: "Images show original HORISONY garment concepts. Materials, care instructions, sizes, measurements, prices and inventory are editable example information, awaiting verification against actual merchandise.",
+        text: "Images show original HORIZONY garment concepts. Materials, care instructions, sizes, measurements, prices and inventory are editable example information, awaiting verification against actual merchandise.",
       },
       {
         title: "Purchasing status",

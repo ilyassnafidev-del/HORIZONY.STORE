@@ -14,15 +14,15 @@ const manrope = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.origin),
   title: {
-    default: "HORISONY — A new perspective on the everyday",
-    template: "%s | HORISONY",
+    default: "HORIZONY — A new perspective on the everyday",
+    template: "%s | HORIZONY",
   },
   description:
-    "Contemporary essentials. Considered details. Explore an original collection of T-shirts and jackets by HORISONY.",
+    "Contemporary essentials. Considered details. Explore an original collection of T-shirts and jackets by HORIZONY.",
   openGraph: {
     type: "website",
-    siteName: "HORISONY",
-    title: "HORISONY — The shape of what’s next.",
+    siteName: "HORIZONY",
+    title: "HORIZONY — The shape of what’s next.",
     description: "Contemporary essentials. Considered details.",
     images: [
       {

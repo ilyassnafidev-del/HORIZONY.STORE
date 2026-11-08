@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "HORISONY",
+  name: "HORIZONY",
   currency: "USD",
   locale: "en-US",
   origin: "https://horizony.store",
