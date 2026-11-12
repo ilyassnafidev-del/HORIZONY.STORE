@@ -36,7 +36,7 @@ export const refundPolicy: Policy = {
       id: "requesting-return",
       title: "4. How to request a return",
       paragraphs: [
-        "Contact customer support on WhatsApp using the link below. Include your order number, the item or items you wish to return and your reason for returning them. For damaged, defective or incorrect items, include a description and relevant photographs where available. Do not send payment card numbers or card security codes.",
+        "Contact customer support using the WhatsApp number or email below. Include your order number, the item or items you wish to return and your reason for returning them. For damaged, defective or incorrect items, include a description and relevant photographs where available. Do not send payment card numbers or card security codes.",
         "Support will provide instructions individually, including the authorized return destination and the arrangements applicable to your return. Contact support before sending a parcel and follow the instructions provided. The company's registered business address and virtual mailbox are not designated return destinations; do not send merchandise there unless support specifically confirms that the location can accept your return.",
       ],
     },
@@ -70,7 +70,7 @@ export const refundPolicy: Policy = {
       title: "8. Contact HORIZONY",
       paragraphs: [
         "HORIZONY — operated by NAFI LLC, a company registered in New Mexico, USA.",
-        "Website: https://horizony.store. WhatsApp is our sole customer support channel for cancellations, returns, refunds and exchanges. Use the number and link below. Return destinations are supplied individually by support.",
+        "Website: https://horizony.store. Contact us by WhatsApp or at support@horizony.store for cancellations, returns, refunds and exchanges. Return destinations are supplied individually by support.",
       ],
       links: [{ href: "https://horizony.store", label: "horizony.store" }, { href: "/shipping", label: "Shipping Policy" }],
     },

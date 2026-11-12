@@ -12,11 +12,11 @@ export const information: Record<
   contact: {
     title: "Let’s begin a conversation.",
     kicker: "THE STUDIO / CONTACT",
-    intro: "Contact HORIZONY customer support on WhatsApp for product questions, cancellations, returns, refunds and privacy requests.",
+    intro: "Contact HORIZONY customer support by WhatsApp or email for product questions, cancellations, returns, refunds and privacy requests.",
     sections: [
       {
         title: "Customer support",
-        text: "WhatsApp is our sole customer support channel. Use the link below to contact us. For a request about a purchase, include your order number and a description of what you need. Do not send payment card details.",
+        text: "Contact us using WhatsApp or email below. For a request about a purchase, include your order number and a description of what you need. Do not send payment card details.",
       },
       {
         title: "Business information",

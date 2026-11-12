@@ -6,6 +6,7 @@ export const siteConfig = {
   announcement: "A new perspective on the everyday. Explore Collection 01.",
   supportWhatsappNumber: "+1 (406) 608-6028",
   supportWhatsappUrl: "https://wa.me/14066086028",
+  supportEmail: "support@horizony.store",
   businessName: "NAFI LLC" as string | null,
   businessAddress: "8206 Louisiana Blvd NE, Ste A #10916, Albuquerque, NM 87113, USA" as string | null,
   shippingRegions: [] as string[],

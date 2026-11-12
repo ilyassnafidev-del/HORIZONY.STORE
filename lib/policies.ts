@@ -46,7 +46,7 @@ export const policies: Record<string, Policy> = {
       },
       {
         id: "delivery", title: "4. Shipping, delivery and tracking",
-        paragraphs: [deliveryInformation.processing, deliveryInformation.shipping, "The checkout country selector lists current supported destinations, including European destinations, the United States, Canada, Australia and the United Kingdom. Shipping charges are displayed before payment. The delivery window begins at shipment and excludes order processing.", "If an order cannot be shipped within a promised period, customers receive the notices, cancellation options and refunds required by applicable law. Contact customer support about delivery arrangements and delays."],
+        paragraphs: [deliveryInformation.processing, deliveryInformation.shipping, "The checkout country selector lists current supported destinations, including European destinations, the United States, Canada, Australia and the United Kingdom. Shipping charges are displayed before payment. The delivery window begins at shipment and excludes order processing.", "If an order cannot be shipped within a promised period, customers receive the notices, cancellation options and refunds required by applicable law. Contact customer support at support@horizony.store or through WhatsApp about delivery arrangements and delays."],
         links: [{ href: "/shipping", label: "Current shipping information" }],
       },
       {
@@ -68,11 +68,11 @@ export const policies: Record<string, Policy> = {
       },
       {
         id: "law-disputes", title: "9. Applicable law and resolving concerns",
-        paragraphs: ["NAFI LLC is registered in New Mexico, USA. Proposed governing-law terms and any dispute procedure require business confirmation before publication. Nothing here limits mandatory rights under the laws applicable to a customer or requires arbitration, waives collective rights or restricts access to a court or consumer authority.", "Contact us through the official WhatsApp link below to raise a concern directly with the business. The registered business address is not a confirmed returns facility."],
+        paragraphs: ["NAFI LLC is registered in New Mexico, USA. Proposed governing-law terms and any dispute procedure require business confirmation before publication. Nothing here limits mandatory rights under the laws applicable to a customer or requires arbitration, waives collective rights or restricts access to a court or consumer authority.", "Contact us by WhatsApp or email at support@horizony.store to raise a concern directly with the business. The registered business address is not a confirmed returns facility."],
       },
       {
         id: "privacy-contact", title: "10. Privacy, updates and contact",
-        paragraphs: ["The Privacy Policy explains browser storage, customer sessions, saved orders, Stripe payment verification and WhatsApp support. Changes to ordering, payments or data use require an appropriate update to the relevant policies before those features are enabled.", "Business: NAFI LLC, 8206 Louisiana Blvd NE, Ste A #10916, Albuquerque, NM 87113, USA. Website: https://horizony.store. Customer support is available solely through the official WhatsApp number and link below."],
+        paragraphs: ["The Privacy Policy explains browser storage, customer sessions, saved orders, Stripe payment verification and customer support. Changes to ordering, payments or data use require an appropriate update to the relevant policies before those features are enabled.", "Business: NAFI LLC, 8206 Louisiana Blvd NE, Ste A #10916, Albuquerque, NM 87113, USA. Website: https://horizony.store. Contact customer support through the WhatsApp number or support@horizony.store below."],
         links: [{ href: "/privacy-policy", label: "Privacy Policy" }, { href: "/refund-policy", label: "Refund & Cancellation Policy" }],
       },
     ],
