@@ -70,7 +70,7 @@ if (process.env.HORISONY_OUTPUT === 'export') {
     const text = readFileSync(file, 'utf8');
     if (file.endsWith('.html')) {
       assert.ok(text.includes(`href="${siteConfig.supportWhatsappUrl}"`), `Missing WhatsApp support link in ${url}`);
-      assert.ok(!text.includes('href="mailto:'), `Unexpected email contact link in ${url}`);
+      assert.ok(text.includes(`href="mailto:${siteConfig.supportEmail}"`), `Missing email support link in ${url}`);
       if (['/contact/', '/returns/', '/refund-policy/', '/privacy-policy/', '/terms-of-service/'].includes(url)) {
         const links = [...text.matchAll(/<a\b[^>]*href="https:\/\/wa\.me\/14066086028"[^>]*>/g)];
         assert.ok(links.length >= 2, `Missing page-specific WhatsApp support or footer contact in ${url}`);
